@@ -41,7 +41,7 @@ export default function Home() {
 
         {/* Features Section */}
         <section className="py-12" aria-labelledby="features-heading">
-          <h2 id="features-heading" className="text-3xl font-bold text-center text-gray-800 mb-10">
+          <h2 id="features-heading" className="text-3xl font-bold text-center text-white-800 mb-10">
             Why Choose Enabled Talent?
           </h2>
           {/* ... rest of the section ... */}
