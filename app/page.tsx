@@ -8,22 +8,22 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
-      {/* 1. UNIVERSAL HOVER STYLES: Matches Figma Orange */}
+      {/* UNIVERSAL HOVER STYLES: Figma Orange */}
       <style>{`
         .btn-get-started {
-          background-color: #f59e0b !important; /* Figma Orange */
+          background-color: #f59e0b !important; 
           transition: all 0.3s ease !important;
           color: white !important;
           display: inline-block;
           text-decoration: none !important;
         }
         .btn-get-started:hover {
-          background-color: #d97706 !important; /* Darker Orange for hover */
+          background-color: #d97706 !important; 
           transform: translateY(-2px);
           cursor: pointer;
         }
         .btn-pill-gray {
-          background-color: #f3f4f6 !important; /* Figma Gray */
+          background-color: #f3f4f6 !important; 
           transition: all 0.3s ease !important;
           color: black !important;
           display: inline-block;
@@ -39,7 +39,6 @@ export default function Home() {
       <main className="flex-grow container mx-auto p-8 max-w-6xl" role="main">
         {/* Hero Section - FIGMA BLUE BACKGROUND */}
         <section className="text-center py-20 bg-[#f0f7ff] rounded-[40px] mb-12 shadow-sm border border-blue-50 relative overflow-hidden">
-           {/* Subtle Blue Dot Grid matching Figma style */}
            <div className="absolute inset-0 opacity-10 pointer-events-none" 
                style={{ backgroundImage: 'radial-gradient(#2563eb 0.5px, transparent 0.5px)', backgroundSize: '20px 20px' }}></div>
           
@@ -51,14 +50,12 @@ export default function Home() {
               Empowering disabled professionals through mentorship and inclusive employer partnerships.
             </p>
             
-            {/* UPDATED: Get Started Button in Figma Orange */}
             <Link href="/talent" className="btn-get-started px-10 py-4 rounded-full font-bold shadow-md">
               Get Started Today
             </Link>
           </div>
         </section>
 
-        {/* Linked to About Page and matches FIGMA Pill style */}
         <div className="flex justify-center mt-12 mb-10">
           <Link 
             href="/about" 
