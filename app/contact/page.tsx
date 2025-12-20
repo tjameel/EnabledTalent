@@ -1,42 +1,49 @@
+"use client";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// The contact page layout, reusing the components we just created.
 export default function Contact() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
-      <main className="flex-grow container mx-auto p-8 max-w-2xl">
-        <h1 className="text-3xl font-bold mb-6 text-blue-900 text-center">Contact Us</h1>
-        <p className="mb-6 text-white-700">Have questions? We'd love to hear from you.</p>
-        
-        {/* Simple form structure - no backend needed as per requirements [cite: 7] */}
-        <form className="space-y-4">
-          <div>
-            <label className="block text-sm font-bold mb-1">Name</label>
-            <input type="text" className="w-full p-2 border rounded" placeholder="Your Name" />
-          </div>
-          <div>
-            <label className="block text-sm font-bold mb-1">Email</label>
-            <input type="email" className="w-full p-2 border rounded" placeholder="you@example.com" />
-          </div>
-          <div>
-            <label className="block text-sm font-bold mb-1">Message</label>
-            <textarea className="w-full p-2 border rounded h-32" placeholder="How can we help?"></textarea>
-          </div>
-          {/* Wrap the button in a div and use the 'text-center' class to center content */}
-          <div className="text-center">
-            <button 
-              type="button" 
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-            >
+      <style>{`
+        .btn-pill-submit {
+          background-color: #2563eb !important;
+          transition: all 0.3s ease !important;
+          color: white !important;
+        }
+        .btn-pill-submit:hover {
+          background-color: #1d4ed8 !important;
+          transform: translateY(-2px);
+        }
+      `}</style>
+
+      <main className="flex-grow container mx-auto p-8 max-w-3xl" role="main">
+        <header className="text-center mb-10">
+          <h1 className="text-4xl font-extrabold text-black">Contact Us</h1>
+        </header>
+
+        <section className="bg-white p-10 rounded-[40px] shadow-lg border border-gray-100">
+          <form className="space-y-6">
+            <div>
+              <label className="block text-sm font-bold text-black mb-2">Full Name</label>
+              <input type="text" className="w-full px-5 py-3 border border-gray-200 rounded-2xl text-black focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Jane Doe" required />
+            </div>
+            <div>
+              <label className="block text-sm font-bold text-black mb-2">Email Address</label>
+              <input type="email" className="w-full px-5 py-3 border border-gray-200 rounded-2xl text-black focus:ring-2 focus:ring-blue-500 outline-none" placeholder="jane@example.com" required />
+            </div>
+            <div>
+              <label className="block text-sm font-bold text-black mb-2">Message</label>
+              <textarea rows={4} className="w-full px-5 py-3 border border-gray-200 rounded-2xl text-black focus:ring-2 focus:ring-blue-500 outline-none" placeholder="How can we help?" required></textarea>
+            </div>
+            <button type="submit" className="btn-pill-submit w-full py-4 rounded-full text-lg font-bold shadow-md">
               Send Message
             </button>
-          </div>
-        </form>
+          </form>
+        </section>
       </main>
-
       <Footer />
     </div>
   );

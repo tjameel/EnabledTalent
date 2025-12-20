@@ -1,51 +1,72 @@
-import Link from 'next/link'; // <--- Ensure Link is imported
+"use client";
+import Link from 'next/link';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// ... (keep imports)
-
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
-      {/* Main content area labeled for screen readers */}
-      <main id="main-content" className="flex-grow container mx-auto p-8 max-w-5xl" role="main">
-        
-        {/* Hero Section */}
-        <section className="text-center py-20 bg-gray-50 rounded-xl shadow-lg mb-12" aria-labelledby="hero-heading">
-          <h1 id="hero-heading" className="text-5xl font-extrabold text-blue-800 mb-4">
-            Bridging Talent and Opportunity
-          </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Connecting disabled job seekers (Mentees) with industry-leading professionals (Mentors) for career acceleration.
-          </p>
+      {/* 1. UNIVERSAL HOVER STYLES: Matches Figma Orange */}
+      <style>{`
+        .btn-get-started {
+          background-color: #f59e0b !important; /* Figma Orange */
+          transition: all 0.3s ease !important;
+          color: white !important;
+          display: inline-block;
+          text-decoration: none !important;
+        }
+        .btn-get-started:hover {
+          background-color: #d97706 !important; /* Darker Orange for hover */
+          transform: translateY(-2px);
+          cursor: pointer;
+        }
+        .btn-pill-gray {
+          background-color: #f3f4f6 !important; /* Figma Gray */
+          transition: all 0.3s ease !important;
+          color: black !important;
+          display: inline-block;
+          text-decoration: none !important;
+        }
+        .btn-pill-gray:hover {
+          background-color: #e5e7eb !important;
+          transform: translateY(-2px);
+          cursor: pointer;
+        }
+      `}</style>
+
+      <main className="flex-grow container mx-auto p-8 max-w-6xl" role="main">
+        {/* Hero Section - FIGMA BLUE BACKGROUND */}
+        <section className="text-center py-20 bg-[#f0f7ff] rounded-[40px] mb-12 shadow-sm border border-blue-50 relative overflow-hidden">
+           {/* Subtle Blue Dot Grid matching Figma style */}
+           <div className="absolute inset-0 opacity-10 pointer-events-none" 
+               style={{ backgroundImage: 'radial-gradient(#2563eb 0.5px, transparent 0.5px)', backgroundSize: '20px 20px' }}></div>
           
-          <div className="flex justify-center space-x-6">
-            <Link 
-              href="/talent" 
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition shadow-md"
-              aria-label="Learn more about becoming a mentee"
-            >
-              Become a Mentee
-            </Link>
-            <Link 
-              href="/employers" 
-              className="bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition shadow-md"
-              aria-label="Learn more about becoming a mentor"
-            >
-              Become a Mentor
+          <div className="relative z-10">
+            <h1 className="text-5xl font-extrabold text-black mb-6 tracking-tight">
+              Bridging the Gap for Disabled Talent
+            </h1>
+            <p className="text-xl text-black max-w-3xl mx-auto mb-10 leading-relaxed">
+              Empowering disabled professionals through mentorship and inclusive employer partnerships.
+            </p>
+            
+            {/* UPDATED: Get Started Button in Figma Orange */}
+            <Link href="/talent" className="btn-get-started px-10 py-4 rounded-full font-bold shadow-md">
+              Get Started Today
             </Link>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-12" aria-labelledby="features-heading">
-          <h2 id="features-heading" className="text-3xl font-bold text-center text-gray-800 mb-10">
-            Why Choose Enabled Talent?
-          </h2>
-          {/* ... rest of the section ... */}
-        </section>
+        {/* Linked to About Page and matches FIGMA Pill style */}
+        <div className="flex justify-center mt-12 mb-10">
+          <Link 
+            href="/about" 
+            className="btn-pill-gray px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest shadow-sm"
+          >
+            Why Choose Enabled Jobs
+          </Link>
+        </div>
       </main>
 
       <Footer />

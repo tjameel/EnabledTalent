@@ -1,84 +1,63 @@
+"use client";
+import Link from 'next/link';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// Talent Page: Focuses on the benefits and opportunities for Mentees (disabled professionals/job seekers).
 export default function Talent() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      
-      <main className="flex-grow container mx-auto p-8 max-w-5xl">
-        {/* Main Header */}
-        <h1 className="text-4xl font-extrabold mb-8 text-blue-800 border-b pb-2 text-center">
-          Mentee Success: Accelerate Your Career
-        </h1>
+      <style>{`
+        .btn-pill-apply {
+          background-color: #f3f4f6 !important;
+          transition: all 0.3s ease !important;
+          color: black !important;
+        }
+        .btn-pill-apply:hover {
+          background-color: #e5e7eb !important;
+          transform: translateY(-2px);
+        }
+      `}</style>
 
-        {/* Hero Section */}
-        <section className="bg-green-50 p-8 rounded-lg shadow-md mb-12" tabIndex={0}>
-          <h2 className="text-3xl font-semibold mb-4 text-green-700">
-            Find Your Mentor, Define Your Future
-          </h2>
-          <p className="text-lg text-gray-700">
-            Our mentorship program is specifically designed to overcome barriers and connect you with industry leaders who are committed to inclusive growth. Gain personalized support, refine your interview skills, and access exclusive job pipelines.
-          </p>
-        </section>
+      <main className="flex-grow container mx-auto p-8 max-w-6xl" role="main">
+        <header className="text-center mb-16">
+          <h1 className="text-4xl font-extrabold text-black mb-4">Find Your Mentor</h1>
+        </header>
 
-        {/* Core Benefits Grid */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6 text-gray-700 text-center">
-            What You Will Gain
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            
-            {/* Benefit 1: Personalized Guidance */}
-            <div className="p-6 border rounded-lg shadow-sm">
-              <div className="flex justify-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold">
-                  🧠
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-blue-600">Personalized Guidance</h3>
-              <p className="text-gray-500">
-                Weekly one-on-one sessions tailored to your specific career trajectory and needs.
-              </p>
-            </div>
-            
-            {/* Benefit 2: Skill Portfolio Review */}
-            <div className="p-6 border rounded-lg shadow-sm">
-              <div className="flex justify-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold">
-                  📝
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-blue-600">Skill Portfolio Review</h3>
-              <p className="text-gray-500">
-                Get expert feedback on your resume, LinkedIn, and portfolio from hiring managers.
-              </p>
-            </div>
-            
-            {/* Benefit 3: Inclusive Job Network */}
-            <div className="p-6 border rounded-lg shadow-sm">
-              <div className="flex justify-center mb-4">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold">
-                  🔗
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2 text-blue-600">Inclusive Job Network</h3>
-              <p className="text-gray-500">
-                Direct access to companies pre-vetted for their commitment to accessibility and inclusion.
-              </p>
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {/* Card 1: BLUE FIGMA STYLE */}
+          <div className="bg-[#f0f7ff] p-10 rounded-[40px] shadow-sm border border-blue-50 relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2563eb 0.5px, transparent 0.5px)', backgroundSize: '20px 20px' }}></div>
+            <div className="relative z-10">
+              <div className="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center mb-6"><span className="text-3xl">🧠</span></div>
+              <h2 className="text-2xl font-extrabold text-black mb-4">Personalized Coaching</h2>
+              <ul className="space-y-3 text-black font-medium">
+                <li><span className="text-[#f59e0b]">→</span> Resume & Portfolio reviews</li>
+                <li><span className="text-[#f59e0b]">→</span> Mock interview preparation</li>
+              </ul>
             </div>
           </div>
-        </section>
 
-        {/* Call to Action Button */}
-        <div className="text-center pt-8 border-t">
-          <button className="bg-blue-600 text-white px-10 py-4 rounded-lg text-xl font-bold hover:bg-blue-700 transition shadow-lg">
-            Apply to be a Mentee Today
-          </button>
+          {/* Card 2: TAN FIGMA STYLE */}
+          <div className="bg-[#fff9f0] p-10 rounded-[40px] shadow-sm border border-orange-50 relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#f59e0b 0.5px, transparent 0.5px)', backgroundSize: '20px 20px' }}></div>
+            <div className="relative z-10">
+              <div className="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center mb-6"><span className="text-3xl">🔗</span></div>
+              <h2 className="text-2xl font-extrabold text-black mb-4">Industry Connections</h2>
+              <ul className="space-y-3 text-black font-medium">
+                <li><span className="text-[#f59e0b]">→</span> Pre-vetted job opportunities</li>
+                <li><span className="text-[#f59e0b]">→</span> Networking with leaders</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center mb-10">
+          <Link href="/contact" className="btn-pill-apply px-10 py-4 rounded-full text-sm font-bold uppercase tracking-widest shadow-sm">
+            Apply to be a Mentee
+          </Link>
         </div>
       </main>
-
       <Footer />
     </div>
   );
