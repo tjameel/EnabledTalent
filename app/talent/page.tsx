@@ -29,22 +29,40 @@ export default function Talent() {
             What You Will Gain
           </h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            {/* Benefit 1 */}
+            
+            {/* Benefit 1: Personalized Guidance */}
             <div className="p-6 border rounded-lg shadow-sm">
+              <div className="flex justify-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold">
+                  🧠
+                </div>
+              </div>
               <h3 className="text-xl font-bold mb-2 text-blue-600">Personalized Guidance</h3>
               <p className="text-gray-500">
                 Weekly one-on-one sessions tailored to your specific career trajectory and needs.
               </p>
             </div>
-            {/* Benefit 2 */}
+            
+            {/* Benefit 2: Skill Portfolio Review */}
             <div className="p-6 border rounded-lg shadow-sm">
+              <div className="flex justify-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold">
+                  📝
+                </div>
+              </div>
               <h3 className="text-xl font-bold mb-2 text-blue-600">Skill Portfolio Review</h3>
               <p className="text-gray-500">
                 Get expert feedback on your resume, LinkedIn, and portfolio from hiring managers.
               </p>
             </div>
-            {/* Benefit 3 */}
+            
+            {/* Benefit 3: Inclusive Job Network */}
             <div className="p-6 border rounded-lg shadow-sm">
+              <div className="flex justify-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xl font-bold">
+                  🔗
+                </div>
+              </div>
               <h3 className="text-xl font-bold mb-2 text-blue-600">Inclusive Job Network</h3>
               <p className="text-gray-500">
                 Direct access to companies pre-vetted for their commitment to accessibility and inclusion.
