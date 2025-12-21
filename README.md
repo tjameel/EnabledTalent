@@ -1,23 +1,40 @@
-# EnabledTalent - Front-End Web Development Project
+# Enabled Talent - Mentorship Platform
+**Author:** Tooba Jameel  
+**Date:** December 2025  
+**Partners:** Telus Breaking Barriers and Riipen  
 
-## Project Summary
-This project focuses on building responsive and accessible front-end pages for EnabledTalent using Next.js, as outlined in the project brief. Deliverables include 6 core pages and a suite of reusable components.
+---
 
-## Technical Stack
+## 📌 Project Overview
+**Enabled Talent** is a professional mentorship platform designed to bridge the gap between disabled professionals and inclusive employer partnerships. This project focuses on high-quality UX, accessibility, and a modern design system. I have ensured that the interface fully aligns with the Figma brand guidelines and functions seamlessly across desktop, tablet, and mobile devices.
+
+## 🎨 Design System (Figma Implementation)
+The interface was rebuilt to follow a cohesive and professional design language:
+
+* **Color Palette:**
+    * **Brand Orange:** `#f59e0b` — Primary CTA color and active navigation state.
+    * **Light Blue:** `#f0f7ff` — Used for Hero sections and Talent cards.
+    * **Light Tan:** `#fff9f0` — Used for Employer cards to provide visual distinction.
+    * **Pill Gray:** `#f3f4f6` — Secondary button color.
+* **Typography:** High-contrast `text-black` used throughout to meet WCAG accessibility standards.
+* **Shapes:** Modern `40px` rounded corners for major cards and `rounded-full` pill shapes for buttons.
+
+## 🚀 Key Features
+* **Responsive Navigation:** A custom Navbar featuring a centered layout for desktop and a functional "Hamburger" menu for mobile/tablet users.
+* **Figma Logo Integration:** Official EnabledTalent brand asset implementation.
+* **Alternating Benefit Cards:** Content sections utilize alternating `#f0f7ff` and `#fff9f0` backgrounds with radial-gradient dot grids.
+* **CTA Workflow:** Strategically placed "Start Mentoring" and "Apply to be a Mentee" buttons to drive user engagement.
+* **Accessibility-First:** Focused on high-contrast text ratios and semantic HTML landmarks.
+
+## 💻 Tech Stack
 * **Framework:** Next.js (App Router)
-* **Language:** TypeScript
 * **Styling:** Tailwind CSS
+* **Language:** TypeScript
+* **Icons/Assets:** Custom PNG Assets & SVG Icons
 
-## How to Run the Project
-1.  **Install Dependencies:** Run `npm install` in the terminal.
-2.  **Start Development Server:** Run `npm run dev` in the terminal.
-3.  **View Project:** Open your browser to `http://localhost:3000`.
+## 🛠️ How to Run Locally
+Ensure you have Node.js installed on your machine.
 
-## Completed Deliverables (Dec 10 Submission)
-1.  **Home Page** (`app/page.tsx`)
-2.  **Contact Page** (`app/contact/page.tsx`)
-3.  **Core Components** (Navbar, Footer, Button)
-
-## Accessibility and Responsiveness Notes
-* **Accessibility:** All pages use semantic HTML (H1s, sections) and include sufficient text contrast to meet basic standards. Tab indices and descriptive labels have been used for form fields (see Contact Page).
-* **Responsiveness:** Layouts are built using Tailwind CSS grid and flex utilities to ensure display is clean on both mobile and desktop screens.
+1. **Clone the project:**
+   ```bash
+   git clone [https://github.com/tjameel/EnabledTalent.git](https://github.com/tjameel/EnabledTalent.git)
