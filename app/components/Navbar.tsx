@@ -1,126 +1,92 @@
 "use client";
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Find a Mentor', href: '/talent' }, 
-    { name: 'Become a Partner', href: '/employers' }, 
-    { name: 'Resources', href: '/resources' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'For Talents', href: '/talent' }, // <--- FIXED: Points to /talent now
+    { name: 'Enabled Academy', href: '/academy' },
+    { name: 'Programs & Awards', href: '/programs' },
+    { name: 'For Employers', href: '/employers' },
+    { name: 'Events', href: '/events' },
   ];
 
-  const isActive = (path: string) => pathname === path;
-
   return (
-    <nav className="bg-white border-b border-gray-100 shadow-sm relative z-50" role="navigation" aria-label="Main Navigation">
-      
-      {/* 1. UPDATED CSS HOVER: Switched from Green to Figma Orange */}
-      <style>{`
-        .btn-nav-pill {
-          background-color: #f59e0b !important; /* Figma Orange */
-          transition: all 0.3s ease !important;
-          color: white !important;
-          text-decoration: none !important;
-        }
-        .btn-nav-pill:hover, .btn-nav-pill:active {
-          background-color: #d97706 !important; /* Darker Orange for hover */
-          cursor: pointer;
-          transform: translateY(-1px);
-        }
-      `}</style>
+    <nav className="bg-white py-4 px-6 sticky top-0 z-50 border-b border-gray-100 font-sans">
+      <div className="container mx-auto flex justify-between items-center relative">
+        
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 z-20">
+           <div className="relative w-40 h-10 md:w-48 md:h-12">
+             <Image 
+               src="/enabled-talent-logo.png" 
+               alt="Enabled Talent" 
+               fill
+               className="object-contain object-left"
+               priority
+             />
+           </div>
+        </Link>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          
-          {/* LOGO: Actual image asset */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" aria-label="Enabled Talent Home">
-              <Image
-                src="/images/enabled-talent-logo.png"
-                alt="Enabled Talent Logo"
-                width={180}
-                height={45}
-                className="h-9 w-auto object-contain"
-                priority
-              />
-            </Link>
-          </div>
-          
-          {/* CENTERED LINKS: Gray text, Orange when active */}
-          <div className="hidden lg:flex flex-1 justify-center space-x-8 items-center">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
+        {/* Desktop Links */}
+        <div className="hidden lg:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link 
+                key={link.name} 
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  isActive(link.href) 
-                    ? 'text-[#f59e0b]' // Matches Figma active color
-                    : 'text-gray-500 hover:text-[#f59e0b]' // Gray default
+                className={`text-sm font-bold uppercase tracking-wide transition-colors ${
+                  isActive ? 'text-[#d94e33]' : 'text-black hover:text-[#d94e33]'
                 }`}
               >
                 {link.name}
               </Link>
-            ))}
-          </div>
-
-          {/* 2. UPDATED CTA BUTTON: Now uses the Orange btn-nav-pill class */}
-          <div className="hidden lg:flex items-center">
-            <Link 
-              href="/employers" 
-              className="btn-nav-pill px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm"
-            >
-              Start Mentoring
-            </Link>
-          </div>
-
-          {/* MOBILE HAMBURGER */}
-          <div className="flex items-center lg:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-md text-gray-500"
-            >
-              {isMobileMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-              ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-              )}
-            </button>
-          </div>
+            );
+          })}
         </div>
+
+        {/* Right Buttons */}
+        <div className="hidden lg:flex items-center gap-4 z-20">
+           <Link href="/register" className="text-sm font-bold text-black hover:text-[#d94e33] transition">Login</Link>
+           <Link href="/register" className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition">
+             Get Started
+           </Link>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2 text-black z-20">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
       </div>
 
-      {/* MOBILE DROPDOWN */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100">
-          <div className="px-4 pt-2 pb-6 space-y-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-3 py-3 rounded-md text-base font-bold ${isActive(link.href) ? 'text-[#f59e0b]' : 'text-gray-500'}`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="pt-4 border-t border-gray-100">
-              <Link 
-                href="/employers" 
-                onClick={() => setIsMobileMenuOpen(false)} 
-                className="btn-nav-pill block w-full text-center px-4 py-3 rounded-full text-base font-bold shadow-md"
-              >
-                Start Mentoring
-              </Link>
-            </div>
-          </div>
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl py-6 px-6 flex flex-col gap-6 h-screen z-40">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.name} 
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="text-xl font-bold text-black border-b border-gray-50 pb-2"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link href="/register" onClick={() => setIsOpen(false)} className="text-xl font-bold text-[#d94e33] pt-4">
+            Get Started
+          </Link>
         </div>
       )}
     </nav>
