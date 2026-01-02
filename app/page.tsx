@@ -16,20 +16,25 @@ export default function Home() {
           background-size: 14px 14px; height: 40px; width: 100%; opacity: 0.6; margin-top: 2rem;
         }
         
+        /* Button Styles with Focus States for AODA */
         .btn-pill {
           display: inline-flex; align-items: center; justify-content: space-between;
           padding: 12px 12px 12px 28px; border-radius: 9999px; font-weight: 700;
-          font-size: 1.125rem; transition: transform 0.2s ease; width: 100%; max-width: 340px;
-          text-decoration: none;
+          font-size: 1.125rem; transition: all 0.3s ease; width: 100%; max-width: 340px;
+          text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .btn-pill:hover { transform: translateY(-2px); }
+        .btn-pill:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .btn-pill:focus-visible { 
+            outline: 3px solid #3b82f6; 
+            outline-offset: 4px; 
+        }
         .btn-pill:hover svg {
-          transform: translateX(6px);
-          transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transform: translateX(4px);
         }
 
         .btn-blue { background-color: #0f172a; color: white; }
         .btn-gold { background-color: #facc15; color: #0f172a; }
+        .btn-orange { background-color: #d94e33; color: white; }
         
         .icon-circle {
           display: flex; align-items: center; justify-content: center;
@@ -38,210 +43,255 @@ export default function Home() {
         }
         .btn-blue .icon-circle { background-color: rgba(255,255,255,0.2); }
         .btn-gold .icon-circle { background-color: rgba(15,23,42,0.1); }
+        .btn-orange .icon-circle { background-color: rgba(255,255,255,0.2); }
       `}</style>
 
-      <main className="flex-grow">
-        {/* HERO SECTION */}
-        <section className="hero-gradient pt-20 pb-10 px-6 rounded-b-[40px]">
+      <main className="flex-grow" id="main-content">
+        {/* ================= HERO SECTION ================= */}
+        <section 
+            className="hero-gradient pt-32 pb-16 px-6 rounded-b-[50px] shadow-xl relative z-10"
+            aria-label="Introduction"
+        >
           <div className="container mx-auto max-w-4xl text-center">
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
               Where Ability <br/> Meets <br/> Opportunity
             </h1>
-            <p className="text-white text-xl md:text-2xl mb-10 max-w-2xl mx-auto opacity-90">
+            <p className="text-white text-xl md:text-2xl mb-12 max-w-2xl mx-auto opacity-95 font-medium leading-relaxed">
               We connect people of all abilities with inclusive employers around the world — giving you the tools, training, and support to grow in your career.
             </p>
 
-            <div className="flex flex-col items-center gap-4 mb-12">
-              <Link href="/talent" className="btn-pill btn-blue group">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+              <Link href="/talent" className="btn-pill btn-blue group" aria-label="Find Your Next Job">
                 <span>Find Your Next Job</span>
-                <div className="icon-circle">
+                <div className="icon-circle" aria-hidden="true">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </div>
               </Link>
 
-              <Link href="/employers" className="btn-pill btn-gold group">
+              <Link href="/employers" className="btn-pill btn-gold group" aria-label="Post a Job for Employers">
                 <span>Post a Job</span>
-                <div className="icon-circle">
+                <div className="icon-circle" aria-hidden="true">
                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </div>
               </Link>
             </div>
 
-            <div className="dots-pattern w-full"></div>
+            <div className="dots-pattern w-full" aria-hidden="true"></div>
             
-            <p className="text-white/80 text-sm font-bold tracking-widest uppercase mt-8">
+            <p className="text-white/90 text-sm font-bold tracking-[0.2em] uppercase mt-10">
               Trusted by organizations building the future of work
             </p>
           </div>
         </section>
 
-        {/* PARTNERS SECTION */}
-        <section className="py-12 text-center bg-white">
-           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-80 grayscale hover:grayscale-0 transition-all">
-             <div className="relative h-12 w-24 md:w-32">
-                <Image src="/aws.png" alt="AWS" fill className="object-contain" />
-             </div>
-             <div className="relative h-12 w-32 md:w-40">
-                <Image src="/microsoft.png" alt="Microsoft" fill className="object-contain" />
-             </div>
-             <div className="relative h-12 w-32 md:w-40">
-                <Image src="/nvidia.png" alt="NVIDIA" fill className="object-contain" />
-             </div>
-             <div className="relative h-12 w-32 md:w-40">
-                <Image src="/unicef.png" alt="UNICEF" fill className="object-contain" />
-             </div>
-             <div className="relative h-12 w-32 md:w-40">
-                <Image src="/startup.png" alt="Startup Lab" fill className="object-contain" />
+        {/* ================= PARTNERS SECTION ================= */}
+        <section className="py-16 bg-white" aria-label="Our Partners">
+           <div className="container mx-auto max-w-6xl">
+             <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+               <div className="relative h-10 w-28"><Image src="/aws.png" alt="Amazon Web Services Logo" fill className="object-contain" /></div>
+               <div className="relative h-10 w-36"><Image src="/microsoft.png" alt="Microsoft Logo" fill className="object-contain" /></div>
+               <div className="relative h-10 w-32"><Image src="/nvidia.png" alt="NVIDIA Logo" fill className="object-contain" /></div>
+               <div className="relative h-12 w-32"><Image src="/unicef.png" alt="UNICEF Logo" fill className="object-contain" /></div>
+               <div className="relative h-12 w-32"><Image src="/startup.png" alt="Startup Lab Logo" fill className="object-contain" /></div>
              </div>
            </div>
         </section>
 
-        {/* MISSION BANNER (New Image) */}
-        <section className="py-16 px-6">
-            <div className="container mx-auto max-w-5xl rounded-[40px] overflow-hidden shadow-2xl relative">
-               {/* This image replaces the text mission section */}
-               <div className="relative w-full aspect-[16/9] md:aspect-[21/9]">
+        {/* ================= MISSION BANNER ================= */}
+        <section className="py-12 px-6" aria-label="Our Mission">
+            <div className="container mx-auto max-w-6xl">
+               <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[40px] overflow-hidden shadow-2xl group bg-gray-100">
                   <Image 
                     src="/mission-banner.png" 
-                    alt="Build careers that last" 
+                    alt="Group of diverse professionals working together in a modern office environment" 
                     fill 
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
+                  {/* Overlay to ensure image isn't too bright if text were over it, mostly decorative here */}
+                  <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                </div>
             </div>
         </section>
 
-        {/* CARDS SECTION */}
-        <section className="py-12 px-6 space-y-8 bg-gray-50">
-           
-           {/* 1. Talent Card */}
-           <div className="bg-[#fffbeb] rounded-[30px] overflow-hidden max-w-4xl mx-auto border border-orange-100 shadow-sm">
-              <div className="relative h-72 w-full">
-                 <Image 
-                    src="/talent.png" 
-                    alt="For Talents" 
-                    fill 
-                    className="object-cover object-top" 
-                 />
-              </div>
-              <div className="p-8">
-                  <span className="text-xs font-bold tracking-widest text-gray-500 uppercase block mb-4">For Talents</span>
-                  <h3 className="text-3xl font-bold text-black mb-4">Looking for a job that matches your skills?</h3>
-                  <p className="text-gray-600 mb-8">Make a free profile and tell us about your experience.</p>
-                  <Link href="/talent" className="btn-pill btn-blue w-full md:w-auto mb-8">
-                     <span>Start your Job Search</span>
-                     <div className="icon-circle">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                     </div>
-                  </Link>
-              </div>
-           </div>
-           
-           {/* 2. Employer Card */}
-           <div className="bg-[#f0f9ff] rounded-[30px] overflow-hidden max-w-4xl mx-auto border border-blue-100 shadow-sm">
-              <div className="relative h-72 w-full">
-                 <Image 
-                    src="/man-in-suit.jpg" 
-                    alt="For Employers" 
-                    fill 
-                    className="object-cover object-top" 
-                 />
-              </div>
-              <div className="p-8">
-                  <span className="text-xs font-bold tracking-widest text-gray-500 uppercase block mb-4">For Employers</span>
-                  <h3 className="text-3xl font-bold text-black mb-4">Ready to hire skilled professionals?</h3>
-                  <p className="text-gray-600 mb-8">Post your job and reach qualified candidates.</p>
-                  <Link href="/employers" className="btn-pill btn-blue w-full md:w-auto">
-                     <span>Post a Job</span>
-                     <div className="icon-circle">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                     </div>
-                  </Link>
-              </div>
-           </div>
-           
-           {/* 3. Academy Card */}
-           <div className="bg-white rounded-[30px] overflow-hidden max-w-4xl mx-auto border border-gray-100 shadow-sm text-center">
-              <div className="relative h-64 w-full">
-                 <Image 
-                    src="/academy.png" 
-                    alt="Enabled Academy" 
-                    fill 
-                    className="object-cover" 
-                 />
-              </div>
-              <div className="p-8">
-                <h3 className="text-3xl font-bold text-black mb-4 text-[#d94e33]">Enabled Academy</h3>
-                <p className="text-gray-600 mb-8">Learn new skills with support that fits your needs.</p>
-                <Link href="/academy" className="btn-pill btn-blue w-full md:w-auto mx-auto">
-                    <span>Register for free</span>
-                    <div className="icon-circle">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                    </div>
-                </Link>
-              </div>
+        {/* ================= SEGMENTS SECTION (Zig-Zag) ================= */}
+        <section className="py-20 px-6 space-y-24 bg-white">
+           <div className="container mx-auto max-w-6xl space-y-24">
+             
+             {/* 1. FOR TALENT (Image Left / Text Right) */}
+             <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                <div className="w-full md:w-1/2">
+                   <div className="relative aspect-[4/3] w-full rounded-[40px] overflow-hidden shadow-xl hover:shadow-2xl transition-shadow bg-[#fffbeb]">
+                      <Image 
+                         src="/talent.png" 
+                         alt="Smiling professional in a wheelchair working on a laptop" 
+                         fill 
+                         className="object-cover object-top hover:scale-105 transition-transform duration-700" 
+                      />
+                   </div>
+                </div>
+                <div className="w-full md:w-1/2">
+                   {/* WCAG: Darker orange for better contrast on white/light bg */}
+                   <span className="inline-block px-4 py-1 bg-orange-50 text-[#c2410c] rounded-full text-xs font-extrabold tracking-widest uppercase mb-6">For Talents</span>
+                   <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight">
+                      Looking for a job that matches your skills?
+                   </h2>
+                   <p className="text-lg text-gray-700 mb-10 leading-relaxed">
+                      Don't let barriers hold you back. Make a free profile, highlight your abilities, and get matched with employers who value what you bring to the table.
+                   </p>
+                   <Link href="/talent" className="btn-pill btn-blue w-auto inline-flex" aria-label="Start Your Job Search">
+                      <span>Start Your Job Search</span>
+                      <div className="icon-circle" aria-hidden="true">
+                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                      </div>
+                   </Link>
+                </div>
+             </div>
+
+             {/* 2. FOR EMPLOYERS (Text Left / Image Right) */}
+             <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-20">
+                <div className="w-full md:w-1/2">
+                   <div className="relative aspect-[4/3] w-full rounded-[40px] overflow-hidden shadow-xl hover:shadow-2xl transition-shadow bg-[#f0f9ff]">
+                      <Image 
+                         src="/man-in-suit.jpg" 
+                         alt="Confident business professional standing in an office" 
+                         fill 
+                         className="object-cover object-center hover:scale-105 transition-transform duration-700" 
+                      />
+                   </div>
+                </div>
+                <div className="w-full md:w-1/2">
+                   {/* WCAG: Darker blue for contrast */}
+                   <span className="inline-block px-4 py-1 bg-blue-50 text-[#1e3a8a] rounded-full text-xs font-extrabold tracking-widest uppercase mb-6">For Employers</span>
+                   <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight">
+                      Ready to hire skilled professionals?
+                   </h2>
+                   <p className="text-lg text-gray-700 mb-10 leading-relaxed">
+                      Tap into a diverse, qualified talent pool. We make it easy to post jobs, find the right candidates, and build an inclusive workforce that drives results.
+                   </p>
+                   <Link href="/employers" className="btn-pill btn-gold w-auto inline-flex" aria-label="Post a Job">
+                      <span>Post a Job</span>
+                      <div className="icon-circle" aria-hidden="true">
+                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                      </div>
+                   </Link>
+                </div>
+             </div>
+
+             {/* 3. ENABLED ACADEMY (Image Left / Text Right) */}
+             <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                <div className="w-full md:w-1/2">
+                   <div className="relative aspect-[4/3] w-full rounded-[40px] overflow-hidden shadow-xl hover:shadow-2xl transition-shadow bg-gray-50">
+                      <Image 
+                         src="/academy.png" 
+                         alt="Students learning in a classroom environment" 
+                         fill 
+                         className="object-cover object-center hover:scale-105 transition-transform duration-700" 
+                      />
+                   </div>
+                </div>
+                <div className="w-full md:w-1/2">
+                   {/* WCAG: Darker gold/brown for contrast */}
+                   <span className="inline-block px-4 py-1 bg-yellow-50 text-[#854d0e] rounded-full text-xs font-extrabold tracking-widest uppercase mb-6">Learning Hub</span>
+                   <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight">
+                      Enabled <span className="text-[#d94e33]">Academy</span>
+                   </h2>
+                   <p className="text-lg text-gray-700 mb-10 leading-relaxed">
+                      Upskill for the jobs of tomorrow. Access courses, mentorship, and resources designed to help you succeed in your chosen career path.
+                   </p>
+                   <Link href="/academy" className="btn-pill btn-orange w-auto inline-flex" aria-label="Register for Enabled Academy for Free">
+                      <span>Register for Free</span>
+                      <div className="icon-circle" aria-hidden="true">
+                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                      </div>
+                   </Link>
+                </div>
+             </div>
+
            </div>
         </section>
 
-        {/* SMART TECH */}
-        <section className="bg-[#0f172a] py-20 px-6 text-white text-center">
-            <div className="container mx-auto max-w-4xl">
-               <div className="inline-block px-4 py-1 border border-gray-700 rounded-full text-xs font-bold tracking-widest text-gray-400 mb-8 uppercase">
-                  How our partners are getting the benefits
+        {/* ================= SMART TECH SECTION ================= */}
+        <section className="bg-[#0f172a] py-24 px-6 text-white text-center rounded-[50px] mx-4 md:mx-8 mb-8 shadow-2xl relative overflow-hidden" aria-label="Technology Impact">
+            {/* Background Accent - Decorative, hidden from SR */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" aria-hidden="true">
+                <div className="absolute top-[-50%] left-[-20%] w-[800px] h-[800px] rounded-full bg-blue-500 blur-[120px]"></div>
+                <div className="absolute bottom-[-50%] right-[-20%] w-[800px] h-[800px] rounded-full bg-orange-500 blur-[120px]"></div>
+            </div>
+
+            <div className="container mx-auto max-w-4xl relative z-10">
+               <div className="inline-block px-5 py-2 border border-white/20 bg-white/5 backdrop-blur-sm rounded-full text-xs font-bold tracking-widest text-gray-300 mb-10 uppercase">
+                  Our Impact Methodology
                </div>
-               <h2 className="text-5xl md:text-6xl font-extrabold mb-8 leading-tight">
-                  <span className="text-[#d94e33]">Smart Technology.</span><br/>
+               <h2 className="text-5xl md:text-7xl font-extrabold mb-10 leading-tight">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Smart Technology.</span><br/>
                   Human Understanding.<br/>
                   Real Outcomes.
                </h2>
-               <p className="text-xl text-gray-400 mb-12">
+               <p className="text-xl md:text-2xl text-gray-300 mb-16 font-light max-w-3xl mx-auto">
                   Our platform links NGOs, educators, governments, and talents to build accessible pathways from learning to meaningful work.
                </p>
-               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                  <Link href="/employers" className="px-8 py-3 rounded-full border border-white font-bold hover:bg-white hover:text-black transition">For Employers</Link>
-                  <Link href="/talent" className="px-8 py-3 rounded-full bg-[#d94e33] border border-[#d94e33] font-bold hover:bg-orange-600 transition">For Talents</Link>
+               <div className="flex flex-col sm:flex-row justify-center gap-6">
+                  <Link 
+                    href="/employers" 
+                    className="px-10 py-4 rounded-full border-2 border-white font-bold hover:bg-white hover:text-[#0f172a] transition text-lg focus:ring-4 focus:ring-white/50 focus:outline-none"
+                  >
+                    For Employers
+                  </Link>
+                  <Link 
+                    href="/talent" 
+                    className="px-10 py-4 rounded-full bg-[#d94e33] border-2 border-[#d94e33] font-bold hover:bg-[#b93c23] hover:border-[#b93c23] transition text-lg shadow-lg shadow-orange-900/20 focus:ring-4 focus:ring-orange-500/50 focus:outline-none"
+                  >
+                    For Talents
+                  </Link>
                </div>
             </div>
         </section>
 
-        {/* INCLUSIVE EDGE */}
-        <section className="bg-[#1e293b] py-20 px-6 text-white border-t border-gray-800">
-           <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
+        {/* ================= INCLUSIVE EDGE SECTION ================= */}
+        <section className="bg-white py-24 px-6" aria-label="Benefits of Inclusive Hiring">
+           <div className="container mx-auto max-w-7xl grid md:grid-cols-2 gap-16 items-center">
+               
+               {/* Left Content */}
                <div>
-                  <h2 className="text-4xl font-bold mb-6">Turn Inclusive Hiring into Your Edge</h2>
-                  <ul className="space-y-6">
-                     <li className="border-l-4 border-[#d94e33] pl-6">
-                        <h4 className="text-xl font-bold">Better Matches, Faster</h4>
-                        <p className="text-gray-400">AI identifies candidates whose skills align with your needs.</p>
-                     </li>
-                     <li className="border-l-4 border-gray-600 pl-6">
-                        <h4 className="text-xl font-bold">Expert Guidance Included</h4>
-                        <p className="text-gray-400">Support on workplace optimization and accommodation.</p>
-                     </li>
-                     <li className="border-l-4 border-gray-600 pl-6">
-                        <h4 className="text-xl font-bold">Network Advantage</h4>
-                        <p className="text-gray-400">Access rigorously vetted professionals who bring diverse perspectives.</p>
-                     </li>
-                  </ul>
-                  <div className="mt-10">
-                     <Link href="/employers" className="btn-pill btn-gold">
+                  <h2 className="text-4xl md:text-5xl font-extrabold text-[#0f172a] mb-10 leading-tight">
+                    Turn Inclusive Hiring <br/> into Your <span className="text-[#d94e33]">Edge</span>
+                  </h2>
+                  <div className="space-y-8">
+                      <div className="border-l-4 border-[#d94e33] pl-6 py-2">
+                         <h3 className="text-2xl font-bold text-[#0f172a] mb-2">Better Matches, Faster</h3>
+                         <p className="text-gray-700 text-lg">AI identifies candidates whose skills align with your needs, reducing bias and time-to-hire.</p>
+                      </div>
+                      <div className="border-l-4 border-gray-200 pl-6 py-2 hover:border-[#facc15] transition-colors duration-300">
+                         <h3 className="text-2xl font-bold text-[#0f172a] mb-2">Expert Guidance Included</h3>
+                         <p className="text-gray-700 text-lg">Support on workplace optimization and accommodation to ensure retention.</p>
+                      </div>
+                      <div className="border-l-4 border-gray-200 pl-6 py-2 hover:border-[#facc15] transition-colors duration-300">
+                         <h3 className="text-2xl font-bold text-[#0f172a] mb-2">Network Advantage</h3>
+                         <p className="text-gray-700 text-lg">Access rigorously vetted professionals who bring diverse perspectives and resilience.</p>
+                      </div>
+                  </div>
+                  <div className="mt-12">
+                     <Link href="/employers" className="btn-pill btn-gold inline-flex" aria-label="Get Started with Inclusive Hiring">
                         <span>Get Started</span>
-                        <div className="icon-circle">
+                        <div className="icon-circle" aria-hidden="true">
                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                         </div>
                      </Link>
                   </div>
                </div>
                
-               {/* Inclusive Hiring Image */}
-               <div className="rounded-[30px] overflow-hidden h-[500px] relative shadow-2xl bg-gray-700">
+               {/* Right Image */}
+               <div className="relative h-[600px] w-full rounded-[50px] overflow-hidden shadow-2xl group bg-gray-100">
                   <Image 
                     src="/inclusive-hiring.png" 
-                    alt="Inclusive Hiring" 
+                    alt="Two colleagues discussing work in an inclusive office setting" 
                     fill 
-                    className="object-cover" 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700" 
                   />
+                  {/* Subtle gradient overlay for text readability if needed, currently decorative */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" aria-hidden="true"></div>
                </div>
+
            </div>
         </section>
       </main>
