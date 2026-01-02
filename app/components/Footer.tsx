@@ -2,7 +2,32 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Footer() {
+export default function Footer({ ctaType = "default" }) {
+  
+  // Define social media links and their corresponding images
+  const socialLinks = [
+    { 
+      name: 'LinkedIn', 
+      src: '/02622749efaddb844bc28cb684f923b28254357a.png', 
+      href: '#' 
+    },
+    { 
+      name: 'X', 
+      src: '/fcdb99cc61a3ae90aceab35eb48c1650f7437058.png', 
+      href: '#' 
+    },
+    { 
+      name: 'Slack', 
+      src: '/3967632023d70e4ed0ef46f0fc2b5a648cc962c2.png', 
+      href: '#' 
+    },
+    { 
+      name: 'YouTube', 
+      src: '/c2f9f5d51a6d4eb5545e422ae833d7cb422950f5.png', 
+      href: '#' 
+    }
+  ];
+
   return (
     <footer className="relative w-full pt-32 pb-12 px-6 overflow-hidden bg-gray-50">
       
@@ -19,28 +44,51 @@ export default function Footer() {
 
       <div className="relative z-10 container mx-auto max-w-7xl flex flex-col items-center">
          
-         {/* 2. "START YOUR JOURNEY" CTA */}
+         {/* 2. DYNAMIC CTA SECTION */}
          <div className="text-center mb-24 max-w-4xl">
-            <h2 className="text-5xl md:text-6xl font-extrabold text-black mb-8">
-               Start Your Journey With <br/> 
-               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Enabled Academy</span>
-            </h2>
-            <p className="text-xl text-gray-700 mb-12 max-w-2xl mx-auto font-medium">
-               Whether you're looking to grow your skills or build your team, Enabled Academy is here to help.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-               <Link href="/register" className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold bg-[#facc15] text-[#0f172a] hover:translate-y-[-2px] transition shadow-lg">
-                  Join as a Talent 
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-               </Link>
-               <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold bg-[#0f172a] text-white hover:translate-y-[-2px] transition shadow-lg">
-                  Partner as an Employer
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-               </Link>
-            </div>
+            
+            {/* OPTION A: AWARDS PAGE TEXT */}
+            {ctaType === "awards" ? (
+                <>
+                    <h2 className="text-5xl md:text-6xl font-extrabold text-black mb-8">
+                        Inclusive Success <br/> 
+                        Starts with a <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Conversation.</span>
+                    </h2>
+                    <p className="text-xl text-gray-700 mb-12 max-w-2xl mx-auto font-medium">
+                        Whether you're hiring, job-seeking, or building inclusion into your programs, we're here to help you turn purpose into progress.
+                    </p>
+                    <div className="flex justify-center">
+                        <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold bg-[#0f172a] text-white hover:translate-y-[-2px] transition shadow-lg">
+                            Sales demo
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </Link>
+                    </div>
+                </>
+            ) : (
+                /* OPTION B: DEFAULT / ACADEMY TEXT */
+                <>
+                    <h2 className="text-5xl md:text-6xl font-extrabold text-black mb-8">
+                        Start Your Journey With <br/> 
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Enabled Academy</span>
+                    </h2>
+                    <p className="text-xl text-gray-700 mb-12 max-w-2xl mx-auto font-medium">
+                        Whether you're looking to grow your skills or build your team, Enabled Academy is here to help.
+                    </p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <Link href="/register" className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold bg-[#facc15] text-[#0f172a] hover:translate-y-[-2px] transition shadow-lg">
+                            Join as a Talent 
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </Link>
+                        <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold bg-[#0f172a] text-white hover:translate-y-[-2px] transition shadow-lg">
+                            Partner as an Employer
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </Link>
+                    </div>
+                </>
+            )}
          </div>
 
-         {/* 3. FOOTER LINKS CARD */}
+         {/* 3. FOOTER LINKS CARD (Same for all pages) */}
          <div className="w-full bg-white/90 backdrop-blur-md rounded-[50px] p-12 md:p-20 shadow-xl border border-white/60">
             
             <div className="grid lg:grid-cols-2 gap-16 mb-16">
@@ -58,10 +106,24 @@ export default function Footer() {
                   <div className="relative w-48 h-12">
                      <Image src="/enabled-talent-logo.png" alt="Enabled Talent" fill className="object-contain object-left lg:object-right" />
                   </div>
+                  
+                  {/* Social Media Icons Section */}
                   <div className="flex gap-4">
-                     {['in', 'tw', 'yt'].map((social) => (
-                        <Link key={social} href="#" className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-600 hover:bg-[#d94e33] hover:text-white transition">
-                           {social}
+                     {socialLinks.map((social) => (
+                        <Link 
+                           key={social.name} 
+                           href={social.href} 
+                           className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition relative overflow-hidden"
+                           aria-label={social.name}
+                        >
+                           <div className="relative w-6 h-6">
+                              <Image 
+                                 src={social.src} 
+                                 alt={social.name} 
+                                 fill 
+                                 className="object-contain" 
+                              />
+                           </div>
                         </Link>
                      ))}
                   </div>
