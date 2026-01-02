@@ -44,7 +44,7 @@ export default function AcademyPage() {
         body { font-family: 'Inter', sans-serif; }
         
         .blob-shape { border-radius: 40% 60% 60% 40% / 40% 50% 50% 50%; }
-        .orbit-circle { border: 1px dashed #cbd5e1; border-radius: 50%; }
+        .orbit-circle { border: 1px dashed #e2e8f0; border-radius: 50%; }
         
         .btn-pill {
             display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -125,30 +125,72 @@ export default function AcademyPage() {
            </div>
         </section>
 
-        {/* ================= WHAT IS ENABLED ACADEMY? (WHITE) ================= */}
+        {/* ================= WHAT IS ENABLED ACADEMY? (WHITE - UPDATED ORBIT) ================= */}
         <section className="py-32 px-6 bg-white relative">
            <div className="container mx-auto max-w-7xl grid lg:grid-cols-2 gap-20 items-center">
+             {/* Text Content */}
              <div>
                 <span className="bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wide mb-8 inline-block">WHO WE ARE</span>
                 <h2 className="text-4xl lg:text-6xl font-extrabold text-black mb-8 leading-tight">What Is <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Enabled Academy?</span></h2>
                 <div className="space-y-8 text-xl text-gray-500 leading-relaxed font-light">
                     <p>Enabled Academy is a skill-building and readiness hub that improves access to meaningful jobs.</p>
                     <p>We train individuals across different career paths, help them gain confidence, and connect them with employers who need job-ready talent.</p>
+                    <p>We work closely with employers to understand their staffing needs and train candidates with the exact skills required for the role — from customer care to office support to IT and engineering.</p>
                 </div>
              </div>
+
+             {/* Orbit Diagram (UPDATED: Elements between each other) */}
              <div className="relative h-[600px] w-full flex items-center justify-center">
-                <div className="absolute w-[500px] h-[500px] orbit-circle border-gray-200"></div>
-                <div className="absolute w-[350px] h-[350px] orbit-circle border-gray-200"></div>
-                <div className="absolute w-[160px] h-[160px] bg-white rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.1)] flex items-center justify-center border border-gray-50 z-20">
-                    <p className="text-center text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-loose">Purpose.<br/>Profit.<br/>Progress.</p>
+                {/* 1. Outer Orbit */}
+                <div className="absolute w-[580px] h-[580px] orbit-circle border-dashed border-gray-200"></div>
+                {/* 2. Middle Orbit */}
+                <div className="absolute w-[420px] h-[420px] orbit-circle border-dashed border-gray-200"></div>
+                {/* 3. Inner Orbit */}
+                <div className="absolute w-[280px] h-[280px] orbit-circle border-dashed border-gray-200"></div>
+                
+                {/* Center Circle */}
+                <div className="absolute w-[180px] h-[180px] bg-white rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.08)] flex items-center justify-center border border-gray-100 z-20">
+                    <p className="text-center text-[11px] font-bold text-gray-400 uppercase tracking-widest leading-loose">Purpose. Profit. Progress.</p>
                 </div>
+
+                {/* === SATELLITES & BUBBLES (Alternating Position) === */}
+
+                {/* 1. Image: Top Left (Outer Ring) */}
+                <div className="absolute top-[30%] left-[18%] z-30 w-14 h-14 rounded-full border-2 border-white shadow-md overflow-hidden bg-gray-100 relative">
+                    <Image src="/orbit-person-3.png" alt="User" fill className="object-cover" />
+                </div>
+
+                {/* 2. Text Bubble: Top Right (Middle Ring - In between Image 1 and 3) */}
+                <div className="absolute top-[15%] right-[20%] z-30 bg-white shadow-lg py-3 px-5 rounded-xl border border-gray-50">
+                    <p className="text-xs font-bold text-black whitespace-nowrap">Inclusive work for all.</p>
+                </div>
+
+                {/* 3. Image: Right (Middle Ring) */}
+                <div className="absolute bottom-[30%] right-[15%] z-30 w-16 h-16 rounded-full border-2 border-white shadow-md overflow-hidden bg-gray-100 relative">
+                    <Image src="/orbit-person-2.png" alt="User" fill className="object-cover" />
+                </div>
+
+                {/* 4. Text Bubble: Bottom Right (Inner Ring - In between Image 3 and 5) */}
+                <div className="absolute bottom-[30%] right-[10%] z-30 bg-white shadow-lg py-3 px-5 rounded-xl border border-gray-50">
+                    <p className="text-xs font-bold text-black whitespace-nowrap">Equity in action.</p>
+                </div>
+
+                {/* 5. Image: Bottom Left (Inner Ring) */}
+                <div className="absolute bottom-[25%] left-[30%] z-30 w-12 h-12 rounded-full border-2 border-white shadow-md overflow-hidden bg-gray-100 relative">
+                    <Image src="/orbit-person-1.png" alt="User" fill className="object-cover" />
+                </div>
+
+                {/* 6. Text Bubble: Left (Outer Ring - In between Image 5 and 1) */}
+                <div className="absolute top-[45%] left-[8%] z-30 bg-white shadow-lg py-3 px-5 rounded-xl border border-gray-50">
+                    <p className="text-xs font-bold text-black whitespace-nowrap">Value through <br/> diverse talent.</p>
+                </div>
+
              </div>
            </div>
         </section>
 
         {/* ================= 3. FOR TALENT (WHITE) ================= */}
         <section id="talent" className="py-24 px-6 bg-white relative overflow-hidden">
-           {/* Watermark */}
            <div className="absolute top-20 left-10 text-gray-100 opacity-40 w-64 h-64 z-0 pointer-events-none">
                 <WatermarkIcon className="w-full h-full" />
            </div>
@@ -199,7 +241,6 @@ export default function AcademyPage() {
 
         {/* ================= 5. FOR EMPLOYERS (WHITE) ================= */}
         <section id="employers" className="py-24 px-6 bg-white relative overflow-hidden">
-           {/* Watermark */}
            <div className="absolute bottom-10 right-10 text-gray-100 opacity-40 w-72 h-72 z-0 pointer-events-none">
                 <WatermarkIcon className="w-full h-full" />
            </div>
@@ -380,16 +421,14 @@ export default function AcademyPage() {
               </h2>
               <div className="flex flex-col lg:flex-row items-start gap-12">
                  
-                 {/* Image Left - Fit Properly using aspect-ratio and object-position: top */}
+                 {/* Image Left */}
                  <div className="w-full lg:w-1/2">
-                    {/* Use aspect-[3/2] to match the reference image shape */}
                     <div className="relative aspect-[3/2] w-full rounded-[40px] overflow-hidden shadow-lg bg-white">
-                       {/* Use object-cover to fill the container, positioned to show the chest up */}
                        <Image src="/img-friends-success.jpg" alt="Leslie Alexander" fill className="object-cover object-[center_30%]" />
                     </div>
                  </div>
                  
-                 {/* Card Right - White with Gray Border, Quote Flipped */}
+                 {/* Card Right */}
                  <div className="w-full lg:w-1/2">
                     <div className="bg-white rounded-[40px] p-10 shadow-sm border border-gray-200 relative h-full">
                        {/* Flipped quote marks in the top-right */}
@@ -403,7 +442,7 @@ export default function AcademyPage() {
                        </div>
                     </div>
                     
-                    {/* Buttons Below - Styled to match */}
+                    {/* Buttons Below */}
                     <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
                         <div className="flex gap-3">
                            <button className="w-12 h-12 rounded-full border border-gray-300 bg-white flex items-center justify-center hover:bg-gray-100 transition text-gray-500">←</button>
@@ -416,7 +455,36 @@ export default function AcademyPage() {
            </div>
         </section>
 
-        
+        {/* ================= 9. FOOTER CTA (WHITE) ================= */}
+        <section className="px-6 pb-24 bg-white">
+           <div className="container mx-auto max-w-7xl">
+             <div className="bg-[#0f172a] rounded-[50px] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
+                <div className="absolute inset-0 z-0">
+                   <Image src="/final-footer.png" alt="Rainbow Road Background" fill className="object-cover object-bottom opacity-20" />
+                   <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/90 via-[#0f172a]/50 to-transparent"></div>
+                </div>
+                <div className="relative z-10">
+                   <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-8">
+                      Start Your Journey With <br/> 
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Enabled Academy</span>
+                   </h2>
+                   <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-medium">
+                      Whether you're looking to grow your skills or build your team, Enabled Academy is here to help.
+                   </p>
+                   <div className="flex flex-col sm:flex-row justify-center gap-4">
+                      <Link href="/register" className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold bg-[#facc15] text-[#0f172a] hover:translate-y-[-2px] transition shadow-lg">
+                          Join as a Talent 
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                      </Link>
+                      <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold bg-white text-[#0f172a] hover:translate-y-[-2px] transition shadow-lg">
+                          Partner as an Employer
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                      </Link>
+                   </div>
+                </div>
+             </div>
+           </div>
+        </section>
 
       </main>
       
