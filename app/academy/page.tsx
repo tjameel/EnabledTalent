@@ -167,7 +167,7 @@ export default function AcademyPage() {
                     <div className="absolute top-[75%] left-[45%] z-30 w-16 h-16 rounded-full border-2 border-white shadow-md overflow-hidden bg-gray-100 relative">
                         <Image src="/orbit-person-3.png" alt="User" fill className="object-cover" />
                     </div>
-                    <div className="absolute bottom-[30%] right-[10%] z-30 bg-white shadow-lg py-3 px-5 rounded-xl border border-gray-50">
+                    <div className="absolute bottom-[30%] right-[8%] z-30 bg-white shadow-lg py-3 px-5 rounded-xl border border-gray-50">
                         <p className="text-xs font-bold text-black whitespace-nowrap">Equity in action.</p>
                     </div>
                     <div className="absolute top-[15%] left-[80%] z-30 w-12 h-12 rounded-full border-2 border-white shadow-md overflow-hidden bg-gray-100 relative">
