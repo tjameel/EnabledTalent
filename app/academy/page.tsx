@@ -231,15 +231,15 @@ export default function AcademyPage() {
                   <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-start">
                      <div className="relative w-full max-w-[480px]">
                         {/* Yellow background card */}
-                        <div className="absolute top-[88px] left-[85px] w-[554px] h-[644px] rounded-[32px]" style={{ background: '#F9C760' }}></div>
+                        <div className="absolute top-[88px] left-[85px] w-[90%] h-[644px] rounded-[32px]" style={{ background: '#F9C760' }}></div>
 
                         {/* Main image */}
-                        <div className="relative z-10 w-[486px] h-[729px] ml-[85px]">
-                           <Image src="/final-float-1.png" alt="Enabled Academy Student" fill className="object-cover object-top rounded-[33px]" />
-                        </div>
+                        <div className="relative z-10 w-full aspect-[2/3] lg:w-[486px] lg:h-[729px] lg:ml-[85px] lg:aspect-auto">
+   <Image src="/final-float-1.png" alt="Enabled Academy Student" fill className="object-cover object-top rounded-[33px] shadow-lg" />
+</div>
 
                         {/* Floating badges on left */}
-                        <div className="absolute top-[147px] left-0 flex flex-col gap-3.5 z-20">
+                        <div className="absolute top-[147px] left-0 flex flex-col gap-3.5 z-20 scale-75 lg:scale-100">
                            <div className="bg-white py-3 px-5 rounded-full flex items-center gap-2.5" style={{ boxShadow: '0px 2px 10px rgba(118, 118, 118, 0.25)' }}>
                               <span className="w-6 h-6 bg-[#24C07C] rounded flex items-center justify-center">
                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
