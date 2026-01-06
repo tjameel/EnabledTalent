@@ -106,12 +106,12 @@ export default function Home() {
         {/* ================= MISSION BANNER ================= */}
         <section className="py-8 md:py-12 px-4 md:px-6" aria-label="Our Mission">
             <div className="container mx-auto max-w-6xl">
-               <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl group bg-gray-100">
+               <div className="relative w-full aspect-[16/9] md:aspect-[14/9] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl group bg-gray-100">
                   <Image 
                     src="/mission-banner.png" 
                     alt="Group of diverse professionals working together in a modern office environment" 
                     fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="object-contain group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
                </div>
