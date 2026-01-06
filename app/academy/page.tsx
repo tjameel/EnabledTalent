@@ -68,7 +68,7 @@ export default function AcademyPage() {
          }
        `}</style>
 
-         <main className="flex-grow w-full">
+         <main className="flex-grow w-full" id="main-content">
 
             {/* ================= SECTION 1: HERO ================= */}
             <section className="py-16 md:py-24 px-6 w-full relative overflow-hidden" style={{ background: '#FDF6E8' }}>
@@ -224,19 +224,23 @@ export default function AcademyPage() {
 
 
             {/* ================= SECTION 3: FOR TALENT ================= */}
-            <section id="talent" className="py-20 md:py-28 px-6 w-full relative overflow-hidden" style={{ background: '#FBFBFB' }}>
-               <div className="container mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-16 lg:gap-20 relative z-10">
+            <section id="talent" className="py-16 md:py-28 px-4 md:px-6 w-full relative overflow-hidden" style={{ background: '#FBFBFB' }}>
+            <div className="container mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative z-10">
 
-                  {/* LEFT: Image with floating badges */}
-                  <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-start">
-                     <div className="relative w-full max-w-[480px]">
-                        {/* Yellow background card */}
-                        <div className="absolute top-[88px] left-[85px] w-[90%] h-[644px] rounded-[32px]" style={{ background: '#F9C760' }}></div>
+            {/* LEFT: Image with floating badges */}
+            <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-start">
+      
+            {/* WRAPPER: Added 'mb-12' to push text down on mobile so yellow bg doesn't overlap */}
+            <div className="relative w-full max-w-[360px] md:max-w-[480px] lg:max-w-none mb-12 lg:mb-0">
+        
+         {/* Yellow background card */}
+         {/* Changed to w-full h-full with top-4 left-4 offset. The mb-12 on parent handles the extra height. */}
+               <div className="absolute top-4 left-4 w-full h-full lg:top-[88px] lg:left-[85px] lg:w-[554px] lg:h-[644px] rounded-[32px] -z-10" style={{ background: '#F9C760' }}></div>
 
-                        {/* Main image */}
-                        <div className="relative z-10 w-full aspect-[2/3] lg:w-[486px] lg:h-[729px] lg:ml-[85px] lg:aspect-auto">
-   <Image src="/final-float-1.png" alt="Enabled Academy Student" fill className="object-cover object-top rounded-[33px] shadow-lg" />
-</div>
+        {/* Main image */}
+        <div className="relative z-10 w-full aspect-[2/3] lg:w-[486px] lg:h-[729px] lg:ml-[85px] lg:aspect-auto">
+          <Image src="/final-float-1.png" alt="Enabled Academy Student" fill className="object-cover object-top rounded-[33px] shadow-lg" />
+        </div>
 
                         {/* Floating badges on left */}
                         <div className="absolute top-[147px] left-0 flex flex-col gap-3.5 z-20 scale-75 lg:scale-100">
