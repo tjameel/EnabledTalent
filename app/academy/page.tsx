@@ -4,429 +4,698 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import GeometricShapes from '../components/GeometricShapes';
-
-// 1. Watermark Logo Component
-const WatermarkIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="4" />
-    <path 
-      d="M50 28 C 56 28, 62 32, 62 38 C 62 44, 56 48, 50 48 C 44 48, 38 44, 38 38 C 38 32, 44 28, 50 28 Z M 35 55 C 25 65, 35 90, 50 90 C 65 90, 75 65, 65 55 M 35 55 C 30 45, 20 40, 15 45 M 65 55 C 70 45, 80 40, 85 45" 
-      stroke="currentColor" 
-      strokeWidth="6" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
-    />
-  </svg>
-);
-
-// 2. Timeline Swirl Icon
-const TimelineSwirl = () => (
-  <svg width="60" height="80" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-     <path 
-       d="M30 75 C 15 75, 5 55, 15 40 C 25 25, 45 25, 55 10" 
-       stroke="#FCD34D" 
-       strokeWidth="3" 
-       strokeLinecap="round"
-     />
-     <circle cx="55" cy="5" r="4" fill="#FCD34D" />
-  </svg>
-);
 
 export default function AcademyPage() {
-  return (
-    <div className="min-h-screen w-full flex flex-col bg-white text-gray-900 font-sans overflow-x-hidden">
-      <Navbar />
-      
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-        
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
-        
-        .blob-shape { border-radius: 40% 60% 60% 40% / 40% 50% 50% 50%; }
-        .orbit-circle { border: 1px dashed #e2e8f0; border-radius: 50%; }
-        
-        .btn-pill {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 14px 32px; border-radius: 9999px; font-weight: 700;
-            transition: all 0.2s ease; text-decoration: none;
-        }
-        
-        .check-item { display: flex; align-items: start; gap: 16px; margin-bottom: 20px; }
-        
-        /* Updated Check Circle with Gradient as requested */
-        .check-circle { 
-            min-width: 24px; height: 24px; 
-            background: linear-gradient(135deg, #d94e33 0%, #f59e0b 100%); 
-            border-radius: 50%; 
-            color: white; display: flex; align-items: center; justify-content: center; 
-            font-size: 12px; margin-top: 4px; flex-shrink: 0; 
-        }
-        
-        .check-circle-solid { 
-            min-width: 24px; height: 24px; background: #E06E45; border-radius: 50%; 
-            color: white; display: flex; align-items: center; justify-content: center; 
-            font-size: 12px; margin-top: 4px; flex-shrink: 0; 
-        }
+   return (
+      <div className="min-h-screen w-full flex flex-col bg-white text-gray-900 overflow-x-hidden" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+         <Navbar />
 
-        .pill-tag {
-            display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px;
-            border-radius: 50px; font-size: 0.95rem; font-weight: 600; color: #374151;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-        }
-        .pill-tag.yellow { background-color: #fff7ed; }
-        .pill-icon.yellow { background-color: #f59e0b; color: white; }
-        .pill-tag.blue { background-color: #eff6ff; }
-        .pill-icon.blue { background-color: #1e3a8a; color: white; }
-        
-        .pill-icon {
-            width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0;
-        }
+         <style jsx global>{`
+         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+         
+         body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; padding: 0; }
+         
+         .btn-pill {
+             display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+             height: 64px; padding: 0 8px 0 24px; border-radius: 32px; font-weight: 600; font-size: 20px;
+             transition: all 0.2s ease; text-decoration: none;
+             filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.16));
+         }
+         
+         .btn-arrow {
+             width: 48px; height: 48px; border-radius: 24px; display: flex;
+             align-items: center; justify-content: center;
+         }
+         
+         .check-item { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+         
+         .check-circle { 
+             min-width: 24px; height: 24px; 
+             background: linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%);
+             border-radius: 50%; 
+             display: flex; align-items: center; justify-content: center; 
+             flex-shrink: 0; 
+         }
 
-        .dot-pattern {
-            background-image: radial-gradient(#e5e7eb 2px, transparent 2px);
-            background-size: 16px 16px;
-        }
-      `}</style>
+         .pill-tag {
+             display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px;
+             border-radius: 50px; font-size: 16px; font-weight: 500;
+         }
+         
+         .pill-icon {
+             width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+         }
 
-      <main className="flex-grow w-full">
-        
-        {/* ================= HERO SECTION ================= */}
-        <section className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 w-full relative overflow-hidden bg-[#fffbf0]">
-           <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-             
-             {/* LEFT: The Composition */}
-             {/* Mobile: Centered, Scaled Down. Desktop: Left Aligned, Full Size */}
-             <div className="relative z-10 flex justify-center lg:justify-start h-[450px] md:h-[550px] lg:h-[650px] w-full items-center overflow-visible">
-                <div className="relative w-[550px] h-[650px] transform scale-[0.6] sm:scale-[0.8] lg:scale-100 origin-center lg:origin-top-left transition-transform duration-300">
-                    <div className="absolute top-16 left-6 w-[340px] h-[480px] border-2 border-black rounded-[40px] z-0 transform -rotate-3"></div>
-                    <div className="absolute top-24 left-14 w-[340px] h-[480px] bg-[#1e293b] rounded-[40px] z-10 transform -rotate-3 shadow-2xl"></div>
-                    <div className="absolute top-[300px] -left-8 z-20 w-[240px] h-[100px] border-[5px] border-white rounded-full transform -rotate-12 bg-transparent opacity-90"></div>
-                    <div className="absolute top-0 left-24 w-[450px] h-[520px] bg-[#facc15] blob-shape z-20 shadow-none"></div>
-                    <div className="absolute top-28 right-24 z-30"><svg width="80" height="260" viewBox="0 0 80 260" fill="none" stroke="white" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round"><path d="M10 10 C 60 10, 60 100, 70 130 C 60 160, 60 250, 10 250" /></svg></div>
-                    <div className="absolute bottom-[170px] -right-4 z-30 transform rotate-6"><svg width="140" height="30" viewBox="0 0 140 30" fill="none" stroke="black" strokeWidth="3" strokeLinecap="round"><path d="M0 15 Q 15 0, 30 15 T 60 15 T 90 15 T 120 15" /></svg></div>
-                    <div className="absolute top-4 right-10 z-30">
-                        <svg width="60" height="60" viewBox="0 0 60 60" fill="white" stroke="black" strokeWidth="2.5" className="absolute -top-6 -left-8 z-40"><path d="M30 0 L38 20 L58 28 L38 36 L30 56 L22 36 L2 28 L22 20 Z" /></svg>
-                        <div className="w-28 h-12 bg-[#fca5a5] border-2 border-black rounded-lg transform rotate-12 flex items-center justify-end px-3 shadow-sm relative z-30"><div className="w-2 h-2 bg-black rounded-full mb-6 mr-1"></div></div>
-                    </div>
-                    <div className="absolute bottom-0 left-8 z-40 w-[440px] h-[560px]">
-                        <Image src="/final-hero.png" alt="Student in wheelchair" fill className="object-contain" priority />
-                    </div>
-                </div>
-             </div>
+         .timeline-line {
+             position: absolute;
+             left: 50%;
+             top: 0;
+             bottom: 0;
+             width: 2px;
+             background: #E5E7EB;
+             transform: translateX(-50%);
+         }
 
-             {/* RIGHT: Text Content */}
-             <div className="relative z-20 pl-0 lg:pl-4 text-center lg:text-left mt-[-50px] md:mt-0">
-                <span className="text-[#d94e33] font-bold tracking-[0.2em] uppercase text-sm mb-4 md:mb-6 block">| ENABLED ACADEMY</span>
-                <h1 className="text-4xl md:text-6xl lg:text-[76px] font-extrabold text-black mb-6 md:mb-8 leading-[1.05]">Learn. Train. Grow.<br/>Get Ready for<br/>Opportunity.</h1>
-                <p className="text-base md:text-lg text-gray-600 mb-8 md:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">Enabled Academy is a training and job-readiness program that helps people build real skills while supporting employers with qualified, prepared, and confident talent.</p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <Link href="#talent" className="btn-pill bg-[#1e293b] text-white hover:bg-[#0f172a] shadow-xl w-full sm:w-auto">For Talents</Link>
-                    <Link href="#employers" className="btn-pill bg-[#facc15] text-[#0f172a] hover:bg-[#eab308] shadow-xl w-full sm:w-auto">For Employers</Link>
-                </div>
-             </div>
-           </div>
-        </section>
+         .timeline-dot {
+             position: absolute;
+             left: 50%;
+             transform: translateX(-50%);
+             width: 16px;
+             height: 16px;
+             border-radius: 50%;
+             background: #F5A623;
+             z-index: 10;
+         }
+       `}</style>
 
-        {/* ================= WHAT IS ENABLED ACADEMY? ================= */}
-        <section className="py-20 md:py-32 px-6 w-full bg-white relative overflow-hidden">
-           <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-             
-             {/* Text Content */}
-             <div className="order-2 lg:order-1 text-center lg:text-left">
-                <span className="bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wide mb-6 md:mb-8 inline-block">WHO WE ARE</span>
-                <h2 className="text-3xl md:text-4xl lg:text-6xl font-extrabold text-black mb-6 md:mb-8 leading-tight">What Is <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Enabled Academy?</span></h2>
-                <div className="space-y-6 md:space-y-8 text-lg md:text-xl text-gray-500 leading-relaxed font-light">
-                    <p>Enabled Academy is a skill-building and readiness hub that improves access to meaningful jobs.</p>
-                    <p>We train individuals across different career paths, help them gain confidence, and connect them with employers who need job-ready talent.</p>
-                    <p>We work closely with employers to understand their staffing needs and train candidates with the exact skills required for the role — from customer care to office support to IT and engineering.</p>
-                </div>
-             </div>
+         <main className="flex-grow w-full">
 
-             {/* Orbit Diagram */}
-             {/* Mobile: Centered container, scaled down. Desktop: Full size. */}
-             <div className="relative h-[350px] md:h-[500px] lg:h-[600px] w-full flex items-center justify-center order-1 lg:order-2 overflow-visible">
-                <div className="relative w-[600px] h-[600px] transform scale-[0.55] md:scale-[0.8] lg:scale-100 origin-center transition-transform duration-300">
-                    
-                    {/* Orbit Circles & Center (Untouched Logic) */}
-                    <div className="absolute w-[580px] h-[580px] orbit-circle border-dashed border-gray-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute w-[420px] h-[420px] orbit-circle border-dashed border-gray-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute w-[280px] h-[280px] orbit-circle border-dashed border-gray-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                    
-                    <div className="absolute w-[180px] h-[180px] bg-white rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.08)] flex items-center justify-center border border-gray-100 z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <p className="text-center text-[11px] font-bold text-gray-400 uppercase tracking-widest leading-loose">Purpose. Profit. Progress.</p>
-                    </div>
+            {/* ================= SECTION 1: HERO ================= */}
+            <section className="py-16 md:py-24 px-6 w-full relative overflow-hidden" style={{ background: '#FDF6E8' }}>
+               {/* Braille dots decoration - hidden on smaller screens, light opacity, positioned at very bottom */}
+               <div className="hidden xl:block absolute bottom-4 right-[10%] z-0 opacity-[0.15]">
+                  <Image src="/Vector-5.svg" alt="" width={733} height={54} />
+               </div>
 
-                    {/* Satellites - Using YOUR exact images & positions */}
-                    <div className="absolute top-[18%] left-[18%] z-30 w-14 h-14 rounded-full border-2 border-white shadow-md overflow-hidden bg-gray-100 relative">
-                        <Image src="/orbit-person-2.png" alt="User" fill className="object-cover" />
-                    </div>
-                    <div className="absolute top-[15%] right-[20%] z-30 bg-white shadow-lg py-3 px-5 rounded-xl border border-gray-50">
-                        <p className="text-xs font-bold text-black whitespace-nowrap">Inclusive work for all.</p>
-                    </div>
-                    <div className="absolute top-[75%] left-[45%] z-30 w-16 h-16 rounded-full border-2 border-white shadow-md overflow-hidden bg-gray-100 relative">
-                        <Image src="/orbit-person-3.png" alt="User" fill className="object-cover" />
-                    </div>
-                    <div className="absolute bottom-[30%] right-[8%] z-30 bg-white shadow-lg py-3 px-5 rounded-xl border border-gray-50">
-                        <p className="text-xs font-bold text-black whitespace-nowrap">Equity in action.</p>
-                    </div>
-                    <div className="absolute top-[15%] left-[80%] z-30 w-12 h-12 rounded-full border-2 border-white shadow-md overflow-hidden bg-gray-100 relative">
-                        <Image src="/orbit-person-1.png" alt="User" fill className="object-cover" />
-                    </div>
-                    <div className="absolute top-[45%] left-[2%] z-30 bg-white shadow-lg py-3 px-5 rounded-xl border border-gray-50">
-                        <p className="text-xs font-bold text-black whitespace-nowrap">Value through <br/> diverse talent.</p>
-                    </div>
-                </div>
-             </div>
-           </div>
-        </section>
+               {/* Curly spiral design - hidden on smaller screens */}
+               <div className="hidden xl:block absolute right-8 top-[25%] z-0">
+                  <Image src="/Vector-3.svg" alt="" width={64} height={371} />
+               </div>
 
-        {/* ================= 3. FOR TALENT (WHITE) ================= */}
-        <section id="talent" className="py-20 md:py-24 px-6 w-full bg-white relative overflow-hidden">
-           <div className="absolute top-20 left-10 text-gray-100 opacity-40 w-64 h-64 z-0 pointer-events-none hidden lg:block">
-                <WatermarkIcon className="w-full h-full" />
-           </div>
+               <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-           <div className="container mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-16 lg:gap-20 relative z-10">
-             <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-end">
-                {/* Mobile: Centered float graphic */}
-                <div className="relative w-full max-w-[400px] md:max-w-[480px] h-[400px] md:h-[500px] bg-[#FCD34D] rounded-[40px] flex items-end justify-center mx-auto lg:mx-0">
-                  <div className="absolute -top-12 -right-12 z-0 hidden lg:block">
-                     <svg width="180" height="180" viewBox="0 0 180 180" fill="none"><defs><pattern id="dot-pattern" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#FCD34D" /></pattern></defs><circle cx="90" cy="90" r="90" fill="url(#dot-pattern)" /></svg>
+                  {/* LEFT: Hero Image Composition */}
+                  <div className="relative z-10 flex justify-center lg:justify-start h-auto w-full items-center">
+                     <div className="relative w-[520px] h-[689px]">
+                        {/* Main hero image composite - includes all decorations */}
+                        <Image
+                           src="/final-hero-composite.png"
+                           alt="Enabled Academy Student"
+                           fill
+                           className="object-contain"
+                           priority
+                        />
+                     </div>
                   </div>
-                  <div className="relative z-10 w-[90%] h-[95%]">
-                      <Image src="/final-float-1.png" alt="Enabled Academy Student" fill className="object-cover drop-shadow-xl" />
+
+                  {/* RIGHT: Text Content */}
+                  <div className="relative z-20 pl-0 lg:pl-4 lg:pr-20 xl:pr-28 text-center lg:text-left">
+                     {/* ENABLED ACADEMY label */}
+                     <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
+                        <span className="w-1 h-6 bg-gradient-to-b from-[#C0412C] to-[#F4C15D]"></span>
+                        <span className="font-bold tracking-[0.2em] uppercase text-xl" style={{
+                           background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                           WebkitBackgroundClip: 'text',
+                           WebkitTextFillColor: 'transparent',
+                           backgroundClip: 'text'
+                        }}>
+                           ENABLED ACADEMY
+                        </span>
+                     </div>
+
+                     <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-black mb-8 leading-[1.15]">
+                        Learn. Train. Grow.<br />Get Ready for<br />Opportunity.
+                     </h1>
+
+                     <p className="text-lg md:text-xl text-[#373737] mb-10 max-w-[652px] mx-auto lg:mx-0 leading-[1.5] lg:pr-4" style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 500 }}>
+                        Enabled Academy is a training and job-readiness program that helps people build real skills while supporting employers with qualified, prepared, and confident talent. Whether you're an individual looking to grow your career — or an employer looking for trained talent — Enabled Academy is here to support your journey.
+                     </p>
+
+                     <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start relative z-10">
+                        <Link href="/register" className="btn-pill text-white" style={{ background: 'linear-gradient(90deg, #2B476D 0%, #182434 100%)' }}>
+                           For Talents
+                           <span className="btn-arrow" style={{ background: 'rgba(255, 255, 255, 0.16)' }}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                 <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                           </span>
+                        </Link>
+                        <Link href="/employers" className="btn-pill text-black" style={{ background: 'linear-gradient(90deg, #FFD071 0%, #EFB745 100%)' }}>
+                           For Employers
+                           <span className="btn-arrow" style={{ background: 'rgba(0, 0, 0, 0.16)' }}>
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                 <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#182434" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                           </span>
+                        </Link>
+                     </div>
                   </div>
-                  {/* Stats Badges */}
-                  <div className="absolute top-8 md:top-16 -left-4 md:-left-16 flex flex-col gap-3 md:gap-4 z-20 w-max">
-                    <div className="bg-green-50 border border-green-100 py-2 px-4 md:px-6 rounded-full shadow-lg flex items-center gap-3"><span className="text-xs md:text-sm font-bold text-green-800">200+ Programs</span></div>
-                    <div className="bg-blue-50 border border-blue-100 py-2 px-4 md:px-6 rounded-full shadow-lg flex items-center gap-3 ml-4"><span className="text-xs md:text-sm font-bold text-blue-800">Expert Instructors</span></div>
-                    <div className="bg-orange-50 border border-orange-100 py-2 px-4 md:px-6 rounded-full shadow-lg flex items-center gap-3"><span className="text-xs md:text-sm font-bold text-orange-800">Certified Learning</span></div>
+               </div>
+            </section>
+
+
+            {/* ================= SECTION 2: WHO WE ARE / WHAT IS ENABLED ACADEMY ================= */}
+            <section className="py-20 md:py-28 px-6 w-full bg-white">
+               <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                  {/* LEFT: Text Content */}
+                  <div className="text-center lg:text-left">
+                     <span className="bg-[rgba(0,0,0,0.06)] text-black px-6 py-4 rounded-full text-xl font-semibold uppercase tracking-wide mb-8 inline-block">WHO WE ARE</span>
+                     <h2 className="text-4xl md:text-[56px] font-bold text-black mb-8 leading-[1.27]">
+                        What Is <span style={{
+                           background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                           WebkitBackgroundClip: 'text',
+                           WebkitTextFillColor: 'transparent',
+                           backgroundClip: 'text'
+                        }}>Enabled Academy?</span>
+                     </h2>
+                     <p className="text-lg md:text-2xl text-[rgba(0,0,0,0.5)] mb-6 leading-relaxed" style={{ fontWeight: 500 }}>
+                        Enabled Academy is a skill-building and readiness hub that improves access to meaningful jobs.
+                     </p>
+                     <p className="text-lg md:text-2xl text-[rgba(0,0,0,0.5)] mb-6 leading-relaxed" style={{ fontWeight: 500 }}>
+                        We train individuals across different career paths, help them gain confidence, and connect them with employers who need job-ready talent.
+                     </p>
+                     <p className="text-lg md:text-2xl text-[rgba(0,0,0,0.5)] leading-relaxed" style={{ fontWeight: 500 }}>
+                        We work closely with employers to understand their staffing needs and train candidates with the exact skills required for the role — from customer care to office support to IT and engineering.
+                     </p>
                   </div>
-                </div>
-             </div>
-             
-             {/* Content */}
-             <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
-                <span className="bg-gray-200 text-gray-600 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide mb-4 inline-block">For Talent</span>
-                <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-6">What Is <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Enabled Academy?</span><br/>Become Job-Ready.</h2>
-                <h3 className="font-bold text-xl md:text-2xl text-black mb-6">What You'll Receive</h3>
-                {/* FIXED: Restored the gradient bullet points */}
-                <div className="space-y-4 text-left inline-block lg:block">
-                   {[
-                     "Role-based training for different industries", 
-                     "One-on-one coaching and interview preparation", 
-                     "Resume and profile guidance", 
-                     "Communication and workplace readiness training",
-                     "Accessibility support and learning accommodations",
-                     "Direct connections to employer partners",
-                     "A supportive learning environment focused on your success"
-                   ].map((item, i) => (
-                      <div key={i} className="check-item"><div className="check-circle">✓</div><span className="text-gray-700 font-medium text-lg leading-snug">{item}</span></div>
-                   ))}
-                </div>
-             </div>
-           </div>
-        </section>
 
-        {/* ================= 4. WHO THIS IS FOR (WHITE) ================= */}
-        <section className="py-20 px-6 w-full bg-white">
-           <div className="container mx-auto max-w-6xl">
-              <div className="bg-[#0f172a] rounded-[40px] md:rounded-[50px] p-10 md:p-28 text-center text-white relative overflow-hidden shadow-2xl">
-                 <span className="bg-[#1e293b] text-white px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wide mb-8 inline-block shadow-md border border-white/5">WHO WE SUPPORT</span>
-                 <h2 className="text-3xl md:text-6xl font-extrabold mb-8 md:mb-10">Who <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">This Is For</span></h2>
-                 <p className="text-lg md:text-2xl text-gray-300 mb-12 md:mb-16 max-w-3xl mx-auto leading-relaxed font-light">Anyone looking to improve skills, start a career, or grow into new opportunities — including students, newcomers, career-changers, and people facing barriers.</p>
-                 <Link href="/register" className="inline-flex items-center gap-2 px-8 py-4 md:px-10 rounded-full font-bold text-[#0f172a] bg-gradient-to-r from-[#FCD34D] to-[#F59E0B] hover:scale-105 transition-transform shadow-lg text-lg group w-full md:w-auto justify-center">
-                    Join Enabled Academy
-                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                 </Link>
-              </div>
-           </div>
-        </section>
+                  {/* RIGHT: Orbit Diagram */}
+                  <div className="relative flex justify-center items-center min-h-[520px]">
+                     <div className="relative w-[350px] h-[350px] md:w-[400px] md:h-[400px]">
+                        {/* Outer dashed orbit ring */}
+                        <div className="absolute inset-0 rounded-full" style={{ border: '2.25px dashed rgba(63, 63, 70, 0.1)' }}></div>
 
-        {/* ================= 5. FOR EMPLOYERS (WHITE) ================= */}
-        <section id="employers" className="py-20 md:py-24 px-6 w-full bg-white relative overflow-hidden">
-           <div className="absolute bottom-10 right-10 text-gray-100 opacity-40 w-72 h-72 z-0 pointer-events-none hidden lg:block">
-                <WatermarkIcon className="w-full h-full" />
-           </div>
+                        {/* Inner dashed orbit ring */}
+                        <div className="absolute inset-[15%] rounded-full" style={{ border: '2.25px dashed rgba(63, 63, 70, 0.1)' }}></div>
 
-           <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center relative z-10">
-              <div className="relative w-full flex justify-center items-center">
-                  <div className="relative w-full max-w-[450px] h-[500px] md:h-[600px]">
-                      <div className="absolute top-20 -left-6 md:-left-10 w-32 md:w-48 h-32 md:h-48 bg-[#fffbf0] rounded-2xl shadow-lg z-10 border border-gray-100"></div>
-                      <div className="absolute bottom-20 -right-6 md:-right-10 w-40 md:w-56 h-40 md:h-56 bg-[#fffbf0] rounded-2xl shadow-lg z-10 border border-gray-100"></div>
-                      <div className="relative z-0 h-full w-full rounded-[40px] overflow-hidden shadow-xl bg-transparent">
-                          <Image src="/final-talent.png" alt="Employer" fill className="object-cover object-top" />
-                      </div>
-                  </div>
-              </div>
-              <div className="lg:pt-10 text-center lg:text-left">
-                 <span className="bg-gray-200 text-gray-600 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide mb-6 inline-block">For Employers</span>
-                 <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-8">Your Workforce <br/><span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Training & <br/> Talent Partner</span></h2>
-                 <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">Enabled Academy helps employers build a stronger and more prepared workforce by training candidates based on real job requirements.</p>
-                 <Link href="/contact" className="btn-pill bg-[#1e293b] text-white hover:bg-[#0f172a] text-lg mb-12 shadow-xl group w-full md:w-auto mx-auto lg:mx-0">Book a Call Now</Link>
-                 <h3 className="font-bold text-xl text-black mb-6">How We Support Employers</h3>
-                 {/* FIXED: Restored the gradient bullet points */}
-                 <div className="space-y-4 text-left inline-block lg:block">
-                    {[
-                      "We train them specifically for your roles", 
-                      "We source and identify potential candidates", 
-                      "We provide one-on-one coaching and readiness support",
-                      "We support inclusive hiring practices across all departments",
-                      "We reduce onboarding challenges and help improve retention",
-                      "We prepare candidates to fully understand your workflows, tools, and expectations"
-                    ].map((item, i) => (
-                       <div key={i} className="check-item"><div className="check-circle-solid">✓</div><span className="text-gray-700 font-medium text-lg leading-snug">{item}</span></div>
-                    ))}
-                 </div>
-              </div>
-           </div>
-        </section>
+                        {/* Center circle with text */}
+                        <div className="absolute inset-[25%] rounded-full flex items-center justify-center" style={{ border: '8px solid #F2F2F2' }}>
+                           <p className="text-center text-sm text-[rgba(18,20,29,0.7)] font-normal">Purpose. Profit. Progress.</p>
+                        </div>
 
-        {/* ... (Remaining Sections 6, 7, 8, 9 unchanged as they were already good) ... */}
-        
-        {/* ================= 6. WE SUPPORT ALL ROLES (CREAM) ================= */}
-        <section className="py-20 md:py-24 px-6 w-full bg-[#fffbf0] text-center">
-           <div className="container mx-auto max-w-6xl">
-              <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-12 md:mb-16">
-                 We Support <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">All Types of Roles</span>
-              </h2>
-              <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-5xl mx-auto">
-                 <span className="pill-tag yellow"><span className="pill-icon yellow">✓</span> Customer Service</span>
-                 <span className="pill-tag blue"><span className="pill-icon blue">✓</span> HR & Recruitment</span>
-                 <span className="pill-tag yellow"><span className="pill-icon yellow">✓</span> Admin Support</span>
-                 <span className="pill-tag blue"><span className="pill-icon blue">✓</span> Operations</span>
-                 
-                 <span className="pill-tag blue"><span className="pill-icon blue">✓</span> Data & Digital</span>
-                 <span className="pill-tag yellow"><span className="pill-icon yellow">✓</span> Sales & Retail</span>
-                 <span className="pill-tag blue"><span className="pill-icon blue">✓</span> Project Coordinator</span>
-                 <span className="pill-tag yellow"><span className="pill-icon yellow">✓</span> Social Media</span>
-                 
-                 <span className="pill-tag yellow"><span className="pill-icon yellow">✓</span> Technical Roles</span>
-                 <span className="pill-tag blue"><span className="pill-icon blue">✓</span> IT Support</span>
-              </div>
-              <p className="text-lg md:text-2xl font-bold mt-12 text-[#d94e33]">
-                 ...and more — <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">we customize based on your staffing needs.</span>
-              </p>
-           </div>
-        </section>
-
-        {/* ================= 7. HOW IT WORKS (WHITE) ================= */}
-        <section className="py-20 md:py-32 px-6 w-full bg-white overflow-hidden">
-           <div className="container mx-auto max-w-6xl">
-              <div className="text-center mb-16 md:mb-24">
-                 <span className="bg-gray-200 text-gray-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide">HOW ENABLED ACADEMY WORKS</span>
-                 <h2 className="text-3xl md:text-4xl font-extrabold text-black mt-6 leading-tight">
-                    A Simple, Clear Process that Supports <br/>
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Both Talents and Employers.</span>
-                 </h2>
-              </div>
-              
-              <div className="relative">
-                 <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 hidden md:block"><TimelineSwirl /></div>
-                 <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[2px] bg-[#FCD34D] hidden md:block z-0"></div>
-                 
-                 <div className="space-y-16 md:space-y-32 pt-0 md:pt-10">
-                    
-                    {/* Step 1 */}
-                    <div className="flex flex-col md:flex-row items-center justify-between w-full relative">
-                        <div className="w-full md:w-5/12 mb-8 md:mb-0 relative"> 
-                           <div className="relative h-64 md:h-72 w-full z-10 rounded-[30px] md:rounded-[40px] overflow-hidden">
-                                  <Image src="/img-train-coffee.jpg" alt="Understand the Need" fill className="object-cover" />
-                                  <div className="absolute bottom-0 right-0 w-16 h-16"><svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 100 L 100 100 L 100 0 A 100 100 0 0 0 0 100" fill="#ffffff" /></svg></div>
+                        {/* Floating avatar top-left */}
+                        <div className="absolute -top-2 left-12">
+                           <div className="w-14 h-14 rounded-full overflow-hidden border-4 border-white" style={{ boxShadow: '0px 4.49px 67.36px rgba(0, 0, 0, 0.08)' }}>
+                              <Image src="/avatar-1.jpg" alt="Person" width={56} height={56} className="object-cover" />
                            </div>
                         </div>
-                        <div className="absolute left-1/2 transform -translate-x-1/2 z-20 hidden md:flex items-center justify-center"><div className="w-5 h-5 rounded-full border-4 border-[#d97706] bg-white"></div></div>
-                        <div className="w-full md:w-5/12 md:pl-10 text-center md:text-left"> 
-                           <span className="text-[#d97706] font-bold text-xl mb-2 block">Understand the Need</span>
-                           <div className="space-y-3 text-gray-600 text-lg"><p>Employers share their role requirements.</p><p>Talents share their career goals.</p></div>
-                        </div>
-                    </div>
 
-                    {/* Step 2 */}
-                    <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full relative">
-                        <div className="w-full md:w-5/12 md:pr-10 text-center md:text-right mt-8 md:mt-0"> 
-                           <span className="text-[#d97706] font-bold text-xl mb-2 block">Train, Coach & Prepare</span>
-                           <div className="space-y-3 text-gray-600 text-lg"><p>We train talents based on employer needs.</p><p>We provide role-specific coaching.</p></div>
-                        </div>
-                        <div className="absolute left-1/2 transform -translate-x-1/2 z-20 hidden md:flex items-center justify-center"><div className="w-5 h-5 rounded-full border-4 border-[#d97706] bg-white"></div></div>
-                        <div className="w-full md:w-5/12 md:pl-10 relative"> 
-                           <div className="relative h-64 md:h-72 w-full z-10 rounded-[30px] md:rounded-[40px] overflow-hidden">
-                                  <Image src="/img-train-phone.jpg" alt="Train" fill className="object-cover" />
-                                  <div className="absolute bottom-0 left-0 w-16 h-16 transform scale-x-[-1]"><svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 100 L 100 100 L 100 0 A 100 100 0 0 0 0 100" fill="#ffffff" /></svg></div>
+                        {/* Floating avatar top-right */}
+                        <div className="absolute top-8 -right-4">
+                           <div className="w-14 h-14 rounded-full overflow-hidden border-4 border-white" style={{ boxShadow: '0px 4.49px 67.36px rgba(0, 0, 0, 0.08)' }}>
+                              <Image src="/avatar-2.jpg" alt="Person" width={56} height={56} className="object-cover" />
                            </div>
                         </div>
-                    </div>
 
-                    {/* Step 3 */}
-                    <div className="flex flex-col md:flex-row items-center justify-between w-full relative">
-                        <div className="w-full md:w-5/12 mb-8 md:mb-0 relative"> 
-                           <div className="relative h-64 md:h-72 w-full z-10 rounded-[30px] md:rounded-[40px] overflow-hidden">
-                                  <Image src="/img-blind-man.jpg" alt="Hire" fill className="object-cover" />
-                                  <div className="absolute bottom-0 right-0 w-16 h-16"><svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 100 L 100 100 L 100 0 A 100 100 0 0 0 0 100" fill="#ffffff" /></svg></div>
+                        {/* Floating avatar bottom-left */}
+                        <div className="absolute bottom-12 -left-4">
+                           <div className="w-14 h-14 rounded-full overflow-hidden border-4 border-white" style={{ boxShadow: '0px 4.49px 67.36px rgba(0, 0, 0, 0.08)' }}>
+                              <Image src="/avatar-3.jpg" alt="Person" width={56} height={56} className="object-cover" />
                            </div>
                         </div>
-                        <div className="absolute left-1/2 transform -translate-x-1/2 z-20 hidden md:flex items-center justify-center"><div className="w-5 h-5 rounded-full border-4 border-[#d97706] bg-white"></div></div>
-                        <div className="w-full md:w-5/12 md:pl-10 text-center md:text-left"> 
-                           <span className="text-[#d97706] font-bold text-xl mb-2 block">Match & Hire</span>
-                           <div className="space-y-3 text-gray-600 text-lg"><p>Employers meet trained candidates.</p><p>We support onboarding.</p></div>
+
+                        {/* Value proposition cards */}
+                        <div className="absolute -top-6 right-[-80px] bg-white rounded-lg px-4 py-3 text-sm font-semibold text-[#12141D]" style={{ boxShadow: '0px 4.09px 61.31px rgba(0, 0, 0, 0.08)' }}>
+                           Inclusive work for all.
                         </div>
-                    </div>
 
-                 </div>
-              </div>
-           </div>
-        </section>
-
-        {/* ================= 8. SUCCESS STORIES (CREAM) ================= */}
-        <section className="py-20 md:py-24 px-6 w-full bg-[#fffbf0]">
-           <div className="container mx-auto max-w-6xl">
-              <h2 className="text-3xl md:text-5xl font-extrabold text-black text-center mb-12 md:mb-16">
-                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d94e33] to-[#f59e0b]">Success</span> Stories
-              </h2>
-              <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16 relative">
-                 
-                 {/* Image Left */}
-                 <div className="w-full lg:w-1/2 z-10">
-                    <div className="relative aspect-[3/2] w-full rounded-[30px] md:rounded-[40px] overflow-hidden shadow-lg bg-white">
-                       <Image src="/img-friends-success.jpg" alt="Leslie Alexander" fill className="object-cover object-[center_30%]" />
-                    </div>
-                 </div>
-                 
-                 {/* Card Right */}
-                 <div className="w-full lg:w-1/2 relative z-10">
-                    <div className="bg-white rounded-[30px] md:rounded-[40px] p-8 md:p-10 shadow-xl border border-gray-200 relative h-full">
-                       <div className="absolute top-4 right-6 md:top-8 md:right-10 text-5xl md:text-6xl text-[#d94e33] opacity-60 font-serif transform scale-x-[-1]">❝</div>
-                       <h4 className="font-bold text-xl md:text-2xl text-black mb-1">Leslie Alexander</h4>
-                       <p className="text-xs md:text-sm text-gray-500 mb-6 uppercase tracking-wide font-bold">PEOPLE OPERATIONS SPECIALIST AT CLARI</p>
-                       <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-8">Enabled Academy helped me gain the confidence to return to work. The training was practical, and the support was incredible.</p>
-                       <div className="flex items-center gap-2 mb-2">
-                          <span className="text-yellow-400 text-lg">★★★★★</span>
-                          <span className="text-black font-bold text-sm">4.5/5.0</span>
-                       </div>
-                    </div>
-                    
-                    {/* Buttons Below */}
-                    <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 md:mt-10 md:ml-4">
-                        <div className="flex gap-3">
-                           <button className="w-12 h-12 rounded-full border border-gray-300 bg-white flex items-center justify-center hover:bg-gray-100 transition text-gray-500">←</button>
-                           <button className="w-12 h-12 rounded-full bg-[#1e293b] text-white flex items-center justify-center hover:bg-black transition">→</button>
+                        <div className="absolute top-1/3 -left-[100px] bg-white rounded-lg px-4 py-3 text-sm font-semibold text-[#12141D] text-center" style={{ boxShadow: '0px 4.09px 61.31px rgba(0, 0, 0, 0.08)' }}>
+                           Value through<br />diverse talent.
                         </div>
-                        <button className="btn-pill bg-[#facc15] text-[#0f172a] hover:bg-yellow-400 px-8 py-3 w-full sm:w-auto font-bold shadow-md">Read the Case Study</button>
-                    </div>
-                 </div>
-                 
-                 {/* Giant Floating Quote Mark (Desktop Only) */}
-                 <div className="hidden lg:block absolute -top-16 right-[45%] text-[150px] leading-none text-[#ffe4c4] font-serif select-none z-0">“</div>
-              </div>
-           </div>
-        </section>
 
-       
+                        <div className="absolute bottom-[-30px] right-[-60px] bg-white rounded-lg px-4 py-3 text-sm font-semibold text-[#12141D]" style={{ boxShadow: '0px 4.09px 61.31px rgba(0, 0, 0, 0.08)' }}>
+                           Equity in action.
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
 
-      </main>
-      
-      <Footer />
-    </div>
-  );
+
+            {/* ================= SECTION 3: FOR TALENT ================= */}
+            <section id="talent" className="py-20 md:py-28 px-6 w-full relative overflow-hidden" style={{ background: '#FBFBFB' }}>
+               <div className="container mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-16 lg:gap-20 relative z-10">
+
+                  {/* LEFT: Image with floating badges */}
+                  <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-start">
+                     <div className="relative w-full max-w-[480px]">
+                        {/* Yellow background card */}
+                        <div className="absolute top-[88px] left-[85px] w-[554px] h-[644px] rounded-[32px]" style={{ background: '#F9C760' }}></div>
+
+                        {/* Main image */}
+                        <div className="relative z-10 w-[486px] h-[729px] ml-[85px]">
+                           <Image src="/final-float-1.png" alt="Enabled Academy Student" fill className="object-cover object-top rounded-[33px]" />
+                        </div>
+
+                        {/* Floating badges on left */}
+                        <div className="absolute top-[147px] left-0 flex flex-col gap-3.5 z-20">
+                           <div className="bg-white py-3 px-5 rounded-full flex items-center gap-2.5" style={{ boxShadow: '0px 2px 10px rgba(118, 118, 118, 0.25)' }}>
+                              <span className="w-6 h-6 bg-[#24C07C] rounded flex items-center justify-center">
+                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></svg>
+                              </span>
+                              <span className="text-lg font-medium text-[rgba(0,0,0,0.8)]">200+ Programs</span>
+                           </div>
+                           <div className="bg-white py-3 px-5 rounded-full flex items-center gap-2.5" style={{ boxShadow: '0px 2px 10px rgba(118, 118, 118, 0.25)' }}>
+                              <span className="w-6 h-6 bg-[#14CBF2] rounded flex items-center justify-center">
+                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><circle cx="8" cy="7" r="4" /><circle cx="16" cy="7" r="4" /><path d="M4 21v-2c0-2 2-4 4-4h8c2 0 4 2 4 4v2" /></svg>
+                              </span>
+                              <span className="text-lg font-medium text-[rgba(0,0,0,0.8)]">Expert Instructors</span>
+                           </div>
+                           <div className="bg-white py-3 px-5 rounded-full flex items-center gap-2.5" style={{ boxShadow: '0px 2px 10px rgba(118, 118, 118, 0.25)' }}>
+                              <span className="w-6 h-6 bg-[#F04E1A] rounded flex items-center justify-center">
+                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z" /></svg>
+                              </span>
+                              <span className="text-lg font-medium text-[rgba(0,0,0,0.8)]">Certified Learning</span>
+                           </div>
+                        </div>
+
+                        {/* Stats card bottom right */}
+                        <div className="absolute bottom-[56px] right-0 bg-white rounded-[20px] p-6 z-20 w-[272px]" style={{ boxShadow: '0px 2px 10px rgba(118, 118, 118, 0.25)' }}>
+                           <p className="text-[32px] font-bold text-black leading-[36px]">75k+</p>
+                           <p className="text-lg text-[rgba(0,0,0,0.8)] mb-4">Students Enrolled with us</p>
+                           <div className="flex -space-x-3">
+                              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white"><Image src="/avatar-1.jpg" alt="" width={48} height={48} className="object-cover" /></div>
+                              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white"><Image src="/avatar-2.jpg" alt="" width={48} height={48} className="object-cover" /></div>
+                              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white"><Image src="/avatar-3.jpg" alt="" width={48} height={48} className="object-cover" /></div>
+                              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white"><Image src="/avatar-4.jpg" alt="" width={48} height={48} className="object-cover" /></div>
+                              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white"><Image src="/avatar-5.jpg" alt="" width={48} height={48} className="object-cover" /></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  {/* RIGHT: Content */}
+                  <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
+                     <span className="bg-[rgba(0,0,0,0.06)] text-black px-6 py-4 rounded-full text-xl font-semibold uppercase tracking-wide inline-block">FOR TALENT</span>
+                     <h2 className="text-4xl md:text-[56px] font-bold text-black leading-[1.27]">
+                        What Is <span style={{
+                           background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                           WebkitBackgroundClip: 'text',
+                           WebkitTextFillColor: 'transparent',
+                           backgroundClip: 'text'
+                        }}>Enabled Academy?</span><br />Become Job-Ready.
+                     </h2>
+                     <p className="text-lg text-[rgba(0,0,0,0.5)] max-w-lg font-medium">
+                        Enabled Academy helps you learn practical skills, prepare for interviews, and become confident in your career journey. Our programs are designed for all skill levels and support a wide range of career interests.
+                     </p>
+
+                     <h3 className="font-bold text-xl text-black pt-4">What You'll Receive</h3>
+                     <div className="space-y-2 text-left inline-block lg:block">
+                        {[
+                           "Role-based training for different industries",
+                           "One-on-one coaching and interview preparation",
+                           "Resume and profile guidance",
+                           "Communication and workplace readiness training",
+                           "Accessibility support and learning accommodations",
+                           "Direct connections to employer partners",
+                           "A supportive learning environment focused on your success"
+                        ].map((item, i) => (
+                           <div key={i} className="check-item">
+                              <div className="check-circle">
+                                 <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 5L4.5 8.5L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                 </svg>
+                              </div>
+                              <span className="font-medium text-[#12141D] text-[21.6px] opacity-70" style={{ letterSpacing: '-0.6px' }}>{item}</span>
+                           </div>
+                        ))}
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+
+            {/* ================= SECTION 4: WHO THIS IS FOR (Dark Card) ================= */}
+            <section className="py-16 px-6 w-full bg-white">
+               <div className="container mx-auto max-w-[1440px]">
+                  <div className="rounded-[48px] p-16 md:p-24 text-center text-white relative overflow-hidden" style={{ background: '#182434' }}>
+                     <span className="bg-[rgba(255,255,255,0.1)] text-white px-6 py-4 rounded-full text-lg font-semibold uppercase tracking-wide mb-8 inline-block">WHO WE SUPPORT</span>
+                     <h2 className="text-4xl md:text-[56px] font-bold mb-8 leading-tight">
+                        Who <span style={{
+                           background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                           WebkitBackgroundClip: 'text',
+                           WebkitTextFillColor: 'transparent',
+                           backgroundClip: 'text'
+                        }}>This Is For</span>
+                     </h2>
+                     <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                        Anyone looking to improve skills, start a career, restart a career, or grow into new opportunities — including students, newcomers, career-changers, and people facing barriers.
+                     </p>
+                     <Link href="/register" className="btn-pill text-black inline-flex" style={{ background: 'linear-gradient(90deg, #FFD071 0%, #EFB745 100%)' }}>
+                        Join Enabled Academy
+                        <span className="btn-arrow" style={{ background: 'rgba(0, 0, 0, 0.16)' }}>
+                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#182434" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                           </svg>
+                        </span>
+                     </Link>
+                  </div>
+               </div>
+            </section>
+
+
+            {/* ================= SECTION 5: FOR EMPLOYERS ================= */}
+            <section id="employers" className="py-20 md:py-28 px-6 w-full bg-white relative overflow-hidden">
+               <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-[117px] items-center relative z-10">
+                  {/* Decorative curly spiral design - anchored to container */}
+                  <div className="absolute left-[-360px] top-[72%] -translate-y-1/2 -z-10 hidden lg:block">
+                     <Image src="/Union-9.svg" alt="" width={279} height={458} />
+                  </div>
+
+                  {/* LEFT: Image with stats card */}
+                  <div className="relative w-full flex justify-center items-center order-2 lg:order-1">
+                     <div className="relative w-[586px] h-[599px]">
+                        <Image src="/Frame 427319326.svg" alt="Employer" fill className="object-contain" />
+                     </div>
+                  </div>
+
+                  {/* RIGHT: Content */}
+                  <div className="order-1 lg:order-2 text-center lg:text-left">
+                     <span className="bg-[rgba(0,0,0,0.06)] text-black px-6 py-4 rounded-full text-lg font-semibold uppercase tracking-wide mb-6 inline-block">FOR EMPLOYERS</span>
+                     <h2 className="text-4xl md:text-[48px] font-bold text-black mb-6 leading-tight">
+                        Your Workforce <span style={{
+                           background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                           WebkitBackgroundClip: 'text',
+                           WebkitTextFillColor: 'transparent',
+                           backgroundClip: 'text'
+                        }}>Training & Talent Partner</span>
+                     </h2>
+                     <p className="text-lg text-[rgba(0,0,0,0.5)] mb-4 max-w-lg font-medium">
+                        Enabled Academy helps employers build a stronger and more prepared workforce by training candidates based on real job requirements.
+                     </p>
+                     <p className="text-lg text-[rgba(0,0,0,0.5)] mb-8 max-w-lg font-medium">
+                        We support you with a flexible, inclusive, and job-ready talent pipeline.
+                     </p>
+                     <Link href="/contact" className="btn-pill text-white mb-8 inline-flex" style={{ background: '#182434' }}>
+                        Book a Call Now
+                        <span className="btn-arrow" style={{ background: 'rgba(255, 255, 255, 0.16)' }}>
+                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                           </svg>
+                        </span>
+                     </Link>
+
+                     <h3 className="font-bold text-xl text-black mb-4">How We Support Employers</h3>
+                     <div className="space-y-2 text-left inline-block lg:block">
+                        {[
+                           "We train them specifically for your roles",
+                           "We source and identify potential candidates",
+                           "We provide one-on-one coaching and readiness support",
+                           "We support inclusive hiring practices across all departments",
+                           "We reduce onboarding challenges and help improve retention",
+                           "We prepare candidates to fully understand your workflows, tools, and expectations"
+                        ].map((item, i) => (
+                           <div key={i} className="check-item">
+                              <div className="check-circle">
+                                 <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 5L4.5 8.5L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                 </svg>
+                              </div>
+                              <span className="font-medium text-[#12141D] text-lg opacity-70">{item}</span>
+                           </div>
+                        ))}
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+
+            {/* ================= SECTION 6: WE SUPPORT ALL ROLES ================= */}
+            <section className="py-20 md:py-28 px-6 w-full text-center" style={{ background: '#FFF8EE' }}>
+               <div className="container mx-auto max-w-6xl">
+                  <h2 className="text-4xl md:text-[48px] font-bold text-black mb-12 leading-tight">
+                     We Support <span style={{
+                        background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                     }}>All Types of Roles</span>
+                  </h2>
+                  <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+                     {/* Row 1 */}
+                     <span className="pill-tag" style={{ background: 'rgba(253, 221, 167, 0.4)' }}>
+                        <span className="pill-icon" style={{ background: '#FFB82C' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">Customer Service & Call Centre</span>
+                     </span>
+                     <span className="pill-tag" style={{ background: '#E9F3FE' }}>
+                        <span className="pill-icon" style={{ background: '#2A466B' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">HR & Recruitment</span>
+                     </span>
+                     <span className="pill-tag" style={{ background: 'rgba(253, 221, 167, 0.4)' }}>
+                        <span className="pill-icon" style={{ background: '#FFB82C' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">Administrative & Office Support</span>
+                     </span>
+                     <span className="pill-tag" style={{ background: '#E9F3FE' }}>
+                        <span className="pill-icon" style={{ background: '#2A466B' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">Operations & Logistics</span>
+                     </span>
+
+                     {/* Row 2 */}
+                     <span className="pill-tag" style={{ background: '#E9F3FE' }}>
+                        <span className="pill-icon" style={{ background: '#2A466B' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">Data & Digital Roles</span>
+                     </span>
+                     <span className="pill-tag" style={{ background: 'rgba(253, 221, 167, 0.4)' }}>
+                        <span className="pill-icon" style={{ background: '#FFB82C' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">Sales & Retail</span>
+                     </span>
+                     <span className="pill-tag" style={{ background: '#E9F3FE' }}>
+                        <span className="pill-icon" style={{ background: '#2A466B' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">Business Analyst & Project Coordinator</span>
+                     </span>
+                     <span className="pill-tag" style={{ background: 'rgba(253, 221, 167, 0.4)' }}>
+                        <span className="pill-icon" style={{ background: '#FFB82C' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">Marketing & Social Media</span>
+                     </span>
+
+                     {/* Row 3 */}
+                     <span className="pill-tag" style={{ background: 'rgba(253, 221, 167, 0.4)' }}>
+                        <span className="pill-icon" style={{ background: '#FFB82C' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">Software & Technical Roles</span>
+                     </span>
+                     <span className="pill-tag" style={{ background: '#E9F3FE' }}>
+                        <span className="pill-icon" style={{ background: '#2A466B' }}>
+                           <svg width="12" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5L4.5 8.5L12.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </span>
+                        <span className="text-gray-700 font-medium">IT Support</span>
+                     </span>
+                  </div>
+                  <p className="text-lg font-medium mt-10" style={{
+                     background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                     WebkitBackgroundClip: 'text',
+                     WebkitTextFillColor: 'transparent',
+                     backgroundClip: 'text'
+                  }}>
+                     ...and more — we customize based on your staffing needs.
+                  </p>
+               </div>
+            </section>
+
+
+            {/* ================= SECTION 7: HOW IT WORKS ================= */}
+            <section className="py-20 md:py-28 px-6 w-full bg-white overflow-hidden">
+               <div className="container mx-auto max-w-5xl">
+                  <div className="text-center mb-16">
+                     <span className="bg-[rgba(0,0,0,0.06)] text-black px-6 py-4 rounded-full text-lg font-semibold uppercase tracking-wide">HOW ENABLED ACADEMY WORKS</span>
+                     <h2 className="text-4xl md:text-[48px] font-bold text-black mt-8 leading-tight">
+                        A Simple, Clear Process that Supports<br />
+                        <span style={{
+                           background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                           WebkitBackgroundClip: 'text',
+                           WebkitTextFillColor: 'transparent',
+                           backgroundClip: 'text'
+                        }}>Both Talents and Employers.</span>
+                     </h2>
+                  </div>
+
+                  <div className="relative">
+                     {/* Vertical timeline line */}
+                     {/* Top decoration - Union-6 */}
+                     <div className="hidden md:flex absolute -top-[55px] left-1/2 transform -translate-x-1/2 z-10">
+                        <Image src="/Union-6.svg" alt="" width={66} height={109} />
+                     </div>
+
+                     <div className="space-y-20 pt-12">
+
+                        {/* Step 1 */}
+                        <div className="flex flex-col md:flex-row items-center justify-between w-full relative gap-8">
+                           <div className="w-full md:w-5/12">
+                              <div className="relative h-64 md:h-80 w-full rounded-[24px] overflow-hidden shadow-lg">
+                                 <Image src="/MaskGroup1.png" alt="Understand the Need" fill className="object-cover" />
+                              </div>
+                           </div>
+                           {/* Timeline dot */}
+                           {/* Timeline dot & connectors */}
+                           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex flex-col items-center">
+                              <Image src="/Ellipse 1825.svg" width={22} height={22} alt="" />
+                              {/* Line 1 going UP */}
+                              <div className="absolute bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2">
+                                 <Image src="/Line 1.svg" width={4} height={97} alt="" />
+                              </div>
+                              {/* Line 2 going DOWN */}
+                              <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2">
+                                 <Image src="/Line 2.svg" width={4} height={469} alt="" />
+                              </div>
+                           </div>
+                           <div className="w-full md:w-5/12 md:pl-12 text-center md:text-left">
+                              <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
+                                 <div className="w-2 h-2 rounded-full bg-[#F5A623]"></div>
+                                 <span className="text-[#000] font-bold text-2xl">Understand the Need</span>
+                              </div>
+                              <div className="space-y-2 text-gray-600 text-base">
+                                 <p>Employers share their role requirements and timelines</p>
+                                 <p>Talents share their career goals and interests</p>
+                                 <p>We align skills, expectations, accessibility needs, and growth paths.</p>
+                              </div>
+                           </div>
+                        </div>
+
+                        {/* Step 2 */}
+                        <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full relative gap-8">
+                           <div className="w-full md:w-5/12 md:pr-12 text-center md:text-right">
+                              <div className="flex items-center gap-2 mb-4 justify-center md:justify-end">
+                                 <span className="text-[#000] font-bold text-2xl">Train, Coach & Prepare</span>
+                                 <div className="w-2 h-2 rounded-full bg-[#F5A623]"></div>
+                              </div>
+                              <div className="space-y-2 text-gray-600 text-base">
+                                 <p>We train talents based on employer needs</p>
+                                 <p>We provide role-specific coaching</p>
+                                 <p>We help talents build confidence through practice and support</p>
+                                 <p>We focus on soft skills and workplace readiness</p>
+                              </div>
+                           </div>
+                           {/* Timeline dot */}
+                           {/* Timeline dot & connectors */}
+                           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex flex-col items-center">
+                              <Image src="/Ellipse 1825.svg" width={22} height={22} alt="" />
+                              {/* Line 3 going DOWN */}
+                              <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2">
+                                 <Image src="/Line 3.svg" width={4} height={582} alt="" />
+                              </div>
+                           </div>
+                           <div className="w-full md:w-5/12">
+                              <div className="relative h-64 md:h-80 w-full rounded-[24px] overflow-hidden shadow-lg">
+                                 <Image src="/MaskGroup2.png" alt="Train" fill className="object-cover" />
+                              </div>
+                           </div>
+                        </div>
+
+                        {/* Step 3 */}
+                        <div className="flex flex-col md:flex-row items-center justify-between w-full relative gap-8">
+                           <div className="w-full md:w-5/12">
+                              <div className="relative h-64 md:h-80 w-full rounded-[24px] overflow-hidden shadow-lg">
+                                 <Image src="/MaskGroup3.png" alt="Match & Hire" fill className="object-cover" />
+                              </div>
+                           </div>
+                           {/* Timeline dot */}
+                           {/* Timeline dot & connectors */}
+                           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 hidden md:flex flex-col items-center">
+                              <Image src="/Ellipse 1825.svg" width={22} height={22} alt="" />
+                              {/* Line 4 going DOWN - clipped to prevent overlap */}
+                              <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 h-[200px] overflow-hidden">
+                                 <Image src="/Line 4.svg" width={4} height={492} alt="" />
+                              </div>
+                           </div>
+                           <div className="w-full md:w-5/12 md:pl-12 text-center md:text-left">
+                              <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
+                                 <div className="w-2 h-2 rounded-full bg-[#F5A623]"></div>
+                                 <span className="text-[#000] font-bold text-2xl">Match & Hire</span>
+                              </div>
+                              <div className="space-y-2 text-gray-600 text-base">
+                                 <p>Employers meet trained, pre-screened candidates</p>
+                                 <p>Talents interview with confidence</p>
+                                 <p>We support onboarding to ensure a smooth transition</p>
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+
+                  {/* Result statement */}
+                  <p className="text-center text-lg md:text-xl font-bold mt-16" style={{
+                     background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                     WebkitBackgroundClip: 'text',
+                     WebkitTextFillColor: 'transparent',
+                     backgroundClip: 'text'
+                  }}>
+                     The Result: Job-ready talent and employers who hire with confidence.
+                  </p>
+               </div>
+            </section>
+
+
+            {/* ================= SECTION 8: SUCCESS STORIES ================= */}
+            <section className="py-20 md:py-28 px-6 w-full bg-white">
+               <div className="container mx-auto max-w-5xl">
+                  <h2 className="text-4xl md:text-[48px] font-bold text-black text-center mb-12 leading-tight">
+                     <span style={{
+                        background: 'linear-gradient(103.34deg, #C0412C 14.95%, #F4C15D 98.33%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                     }}>Success</span> Stories
+                  </h2>
+                  <div className="flex flex-col lg:flex-row items-start gap-10 relative">
+
+                     {/* Image Left */}
+                     <div className="w-full lg:w-1/2">
+                        <div className="relative aspect-[4/3] w-full rounded-[24px] overflow-hidden shadow-lg">
+                           <Image src="/img-friends-success.jpg" alt="Leslie Alexander" fill className="object-cover object-[center_30%]" />
+                        </div>
+                     </div>
+
+                     {/* Card Right */}
+                     <div className="w-full lg:w-1/2 relative">
+                        <div style={{ background: '#FBFBFB', borderRadius: '30px', padding: '40px', position: 'relative' }}>
+                           {/* Quote mark */}
+                           <div className="absolute top-8 right-8">
+                              <Image src="/Mask group.svg" alt="Quote" width={70} height={56} />
+                           </div>
+
+                           <h4 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 500, fontSize: '26px', lineHeight: '33px', color: '#000000', marginBottom: '8px' }}>Leslie Alexander</h4>
+                           <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 400, fontSize: '18px', lineHeight: '32px', color: '#7D7D7D', marginBottom: '24px' }}>People Operations Specialist at Clari</p>
+                           <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 400, fontSize: '24px', lineHeight: '32px', color: '#7D7D7D', marginBottom: '24px', maxWidth: '500px' }}>
+                              Enabled Academy helped me gain the confidence to return to work.
+                           </p>
+                           {/* Star rating - positioned to bottom right */}
+                           <div className="flex items-center gap-2 justify-end">
+                              <span style={{ color: '#FFC814', fontSize: '20px' }}>★</span>
+                              <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: '18px', lineHeight: '44px', color: '#000000' }}>4.5/5.0</span>
+                           </div>
+                        </div>
+
+                        {/* Buttons Below */}
+                        <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
+                           <div className="flex gap-3">
+                              <button className="hover:opacity-80 transition">
+                                 <Image src="/Group 63529.svg" alt="Previous" width={64} height={64} />
+                              </button>
+                              <button className="hover:opacity-80 transition">
+                                 <Image src="/Group 1410066137.svg" alt="Next" width={64} height={64} />
+                              </button>
+                           </div>
+                           <button className="px-6 py-3 rounded-full bg-[#facc15] text-[#0f172a] hover:bg-yellow-400 font-semibold shadow-md text-sm">Read the Case Study</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+
+            {/* Note: Section 9 "Start Your Journey CTA" is removed - the Footer component already includes this CTA */}
+
+         </main>
+
+         <Footer />
+      </div>
+   );
 }

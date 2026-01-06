@@ -11,8 +11,8 @@ export default function Navbar() {
 
   // STRUCTURE: Grouped links for cleaner UI
   const navStructure = [
-    { 
-      name: 'For Talent', 
+    {
+      name: 'For Talent',
       href: '/talent', // Main link
       dropdown: [
         { name: 'Career Coach', href: '/career-coach' },
@@ -21,8 +21,8 @@ export default function Navbar() {
         { name: 'Academy', href: '/academy' },
       ]
     },
-    { 
-      name: 'Partners', 
+    {
+      name: 'Partners',
       href: '#', // Placeholder
       dropdown: [
         { name: 'Educators', href: '/educators' },
@@ -37,18 +37,18 @@ export default function Navbar() {
   return (
     <nav className="bg-white py-4 px-6 sticky top-0 z-50 border-b border-gray-100 font-sans">
       <div className="container mx-auto flex justify-between items-center relative">
-        
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 z-20 shrink-0">
-           <div className="relative w-36 h-10 md:w-44 md:h-12">
-             <Image 
-               src="/enabled-talent-logo.png" 
-               alt="Enabled Talent" 
-               fill
-               className="object-contain object-left"
-               priority
-             />
-           </div>
+          <div className="relative w-36 h-10 md:w-44 md:h-12">
+            <Image
+              src="/enabled-talent-logo.png"
+              alt="Enabled Talent"
+              fill
+              className="object-contain object-left"
+              priority
+            />
+          </div>
         </Link>
 
         {/* DESKTOP LINKS (Centered & Grouped) */}
@@ -58,18 +58,17 @@ export default function Navbar() {
             const isDropdownActive = openDropdown === item.name;
 
             return (
-              <div 
+              <div
                 key={item.name}
                 className="relative group"
                 onMouseEnter={() => hasDropdown && setOpenDropdown(item.name)}
                 onMouseLeave={() => hasDropdown && setOpenDropdown(null)}
               >
                 {/* Top Level Link */}
-                <Link 
+                <Link
                   href={item.href}
-                  className={`text-sm font-bold uppercase tracking-wide transition-colors flex items-center gap-1 ${
-                    pathname === item.href ? 'text-[#d94e33]' : 'text-gray-600 hover:text-[#d94e33]'
-                  }`}
+                  className={`text-sm font-bold uppercase tracking-wide transition-colors flex items-center gap-1 ${pathname === item.href ? 'text-[#C0412C]' : 'text-gray-600 hover:text-[#C0412C]'
+                    }`}
                 >
                   {item.name}
                   {hasDropdown && (
@@ -79,17 +78,16 @@ export default function Navbar() {
 
                 {/* Dropdown Menu */}
                 {hasDropdown && (
-                  <div 
-                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-200 ${
-                      isDropdownActive ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
-                    }`}
+                  <div
+                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-200 ${isDropdownActive ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
+                      }`}
                   >
                     <div className="py-2">
                       {item.dropdown.map((subItem) => (
-                        <Link 
-                          key={subItem.name} 
+                        <Link
+                          key={subItem.name}
                           href={subItem.href}
-                          className="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50 hover:text-[#d94e33] transition-colors text-left"
+                          className="block px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50 hover:text-[#C0412C] transition-colors text-left"
                         >
                           {subItem.name}
                         </Link>
@@ -104,10 +102,24 @@ export default function Navbar() {
 
         {/* Right Buttons */}
         <div className="hidden lg:flex items-center gap-4 z-20 shrink-0">
-           <Link href="/login" className="text-sm font-bold text-black hover:text-[#d94e33] transition">Login</Link>
-           <Link href="/register" className="bg-black text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-gray-800 transition">
-             Get Started
-           </Link>
+          {/* Global Dropdown */}
+          <div className="relative group">
+            <button className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition">
+              <Image src="/Rectangle 161124959.svg" alt="Globe" width={20} height={20} />
+              <span>Global</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Divider */}
+          <div className="h-6 w-px bg-gray-300"></div>
+
+          <Link href="/login" className="text-sm font-semibold text-black hover:text-[#C0412C] transition">Sign in</Link>
+          <Link href="/register" className="text-white px-8 py-3 rounded-full text-sm font-bold hover:bg-gray-800 transition shadow-lg" style={{ background: '#182434' }}>
+            Sign Up
+          </Link>
         </div>
 
         {/* Mobile Toggle Button */}
@@ -127,23 +139,23 @@ export default function Navbar() {
         <div className="xl:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-xl py-6 px-6 flex flex-col gap-6 h-[calc(100vh-80px)] overflow-y-auto z-40">
           {navStructure.map((item) => (
             <div key={item.name} className="flex flex-col gap-3">
-              <Link 
+              <Link
                 href={item.href}
                 onClick={() => !item.dropdown && setIsOpen(false)}
                 className="text-lg font-extrabold text-black"
               >
                 {item.name}
               </Link>
-              
+
               {/* Mobile Sub-links */}
               {item.dropdown && (
                 <div className="flex flex-col gap-3 pl-4 border-l-2 border-gray-100">
                   {item.dropdown.map((subItem) => (
-                    <Link 
-                      key={subItem.name} 
+                    <Link
+                      key={subItem.name}
                       href={subItem.href}
                       onClick={() => setIsOpen(false)}
-                      className="text-base font-medium text-gray-500 hover:text-[#d94e33]"
+                      className="text-base font-medium text-gray-500 hover:text-[#C0412C]"
                     >
                       {subItem.name}
                     </Link>
@@ -153,11 +165,11 @@ export default function Navbar() {
             </div>
           ))}
           <div className="mt-4 flex flex-col gap-4 pb-10 pt-4 border-t border-gray-100">
-            <Link href="/login" onClick={() => setIsOpen(false)} className="text-xl font-bold text-[#d94e33] text-center">
-                Login
+            <Link href="/login" onClick={() => setIsOpen(false)} className="text-xl font-bold text-[#C0412C] text-center">
+              Login
             </Link>
             <Link href="/register" onClick={() => setIsOpen(false)} className="bg-black text-white py-3 rounded-full text-center font-bold">
-                Get Started
+              Get Started
             </Link>
           </div>
         </div>
