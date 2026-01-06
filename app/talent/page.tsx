@@ -81,7 +81,7 @@ export default function TalentPage() {
                         src="/talent-wheelchair.jpg                                                                                                                                                                                                                                                                                                                                                                                                       "
                         alt="Professional in wheelchair"
                         fill
-                        className="object-contain"
+                        className="object-cover"
                      />
                   </div>
 
