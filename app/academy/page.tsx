@@ -187,26 +187,26 @@ export default function AcademyPage() {
                         {/* Floating avatar top-left */}
                         <div className="absolute -top-2 left-12">
                            <div className="w-14 h-14 rounded-full overflow-hidden border-4 border-white" style={{ boxShadow: '0px 4.49px 67.36px rgba(0, 0, 0, 0.08)' }}>
-                              <Image src="/avatar-1.jpg" alt="Person" width={56} height={56} className="object-cover" />
+                              <Image src="/orbit-person-1.png" alt="Person" width={56} height={56} className="object-cover" />
                            </div>
                         </div>
 
                         {/* Floating avatar top-right */}
-                        <div className="absolute top-8 -right-4">
+                        <div className="absolute top-8 -right-1">
                            <div className="w-14 h-14 rounded-full overflow-hidden border-4 border-white" style={{ boxShadow: '0px 4.49px 67.36px rgba(0, 0, 0, 0.08)' }}>
-                              <Image src="/avatar-2.jpg" alt="Person" width={56} height={56} className="object-cover" />
+                              <Image src="/orbit-person-2.png" alt="Person" width={56} height={56} className="object-cover" />
                            </div>
                         </div>
 
                         {/* Floating avatar bottom-left */}
                         <div className="absolute bottom-12 -left-4">
                            <div className="w-14 h-14 rounded-full overflow-hidden border-4 border-white" style={{ boxShadow: '0px 4.49px 67.36px rgba(0, 0, 0, 0.08)' }}>
-                              <Image src="/avatar-3.jpg" alt="Person" width={56} height={56} className="object-cover" />
+                              <Image src="/orbit-person-3.png" alt="Person" width={56} height={56} className="object-cover" />
                            </div>
                         </div>
 
                         {/* Value proposition cards */}
-                        <div className="absolute -top-6 right-[-80px] bg-white rounded-lg px-4 py-3 text-sm font-semibold text-[#12141D]" style={{ boxShadow: '0px 4.09px 61.31px rgba(0, 0, 0, 0.08)' }}>
+                        <div className="absolute -top-6 right-[70px] bg-white rounded-lg px-4 py-3 text-sm font-semibold text-[#12141D]" style={{ boxShadow: '0px 4.09px 61.31px rgba(0, 0, 0, 0.08)' }}>
                            Inclusive work for all.
                         </div>
 
@@ -214,7 +214,7 @@ export default function AcademyPage() {
                            Value through<br />diverse talent.
                         </div>
 
-                        <div className="absolute bottom-[-30px] right-[-60px] bg-white rounded-lg px-4 py-3 text-sm font-semibold text-[#12141D]" style={{ boxShadow: '0px 4.09px 61.31px rgba(0, 0, 0, 0.08)' }}>
+                        <div className="absolute bottom-[-30px] right-[60px] bg-white rounded-lg px-4 py-3 text-sm font-semibold text-[#12141D]" style={{ boxShadow: '0px 4.09px 61.31px rgba(0, 0, 0, 0.08)' }}>
                            Equity in action.
                         </div>
                      </div>
