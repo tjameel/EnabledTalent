@@ -78,7 +78,7 @@ export default function TalentPage() {
                   {/* Image: Woman in Wheelchair */}
                   <div className="relative h-[600px] w-full rounded-[40px] overflow-hidden shadow-xl bg-gray-100 order-2 lg:order-1">
                      <Image
-                        src="/img-train-phone.jpg                                                                                                                                                                                                                                                                                                                                                                                                       "
+                        src="/talent-wheelchair.jpg                                                                                                                                                                                                                                                                                                                                                                                                       "
                         alt="Professional in wheelchair"
                         fill
                         className="object-contain"
