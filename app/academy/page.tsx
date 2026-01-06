@@ -210,7 +210,7 @@ export default function AcademyPage() {
                            Inclusive work for all.
                         </div>
 
-                        <div className="absolute top-1/3 -left-[60px] bg-white rounded-lg px-4 py-3 text-sm font-semibold text-[#12141D] text-center" style={{ boxShadow: '0px 4.09px 61.31px rgba(0, 0, 0, 0.08)' }}>
+                        <div className="absolute top-1/3 -left-[40px] bg-white rounded-lg px-4 py-3 text-sm font-semibold text-[#12141D] text-center" style={{ boxShadow: '0px 4.09px 61.31px rgba(0, 0, 0, 0.08)' }}>
                            Value through<br />diverse talent.
                         </div>
 
